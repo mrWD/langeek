@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { PlayerService } from '../../services/player.service';
 import { SettingsFormService } from '../../services/settings-form.service';
 
 @Component({
@@ -14,18 +15,14 @@ export class TranslationsComponent implements OnInit {
   @Input()
   phraseList!: any[]
 
-  displayedColumns = ['originLanguage', 'language']
+  displayedColumns = ['originLanguage', 'language', 'playTranslations']
 
   language: string
   originLanguage: string
-  voice: any
-  speed: number
 
-  constructor(private settingsService: SettingsFormService) {
+  constructor(private settingsService: SettingsFormService, private playerService: PlayerService) {
     this.language = this.settingsService.getForm().language
     this.originLanguage = this.settingsService.getForm().originLanguage
-    this.voice = this.settingsService.getForm().voice as any
-    this.speed = this.settingsService.getForm().speed
   }
 
   ngOnInit(): void {
@@ -36,6 +33,13 @@ export class TranslationsComponent implements OnInit {
       .find((phrase) => phrase.id.trim() === searchPhrase)
       ?.[language]
       || ''
+  }
+
+  onPlay(phraseList: any[], searchPhraseList: string[]) {
+    const text = searchPhraseList
+      .reduce((acc, phrase) => (`${acc}.\n\n${this.findPhrase(phraseList, phrase, this.language)}`), '')
+
+    this.playerService.play(text)
   }
 
 }

@@ -15,6 +15,24 @@
     <td mat-cell *matCellDef="let phrase">{{ findPhrase(phraseList, phrase, language) }}</td>
   </ng-container>
 
+  <ng-container matColumnDef="playTranslations">
+    <th mat-header-cell *matHeaderCellDef width="65">
+      <button mat-raised-button color="primary" (click)="onPlay(phraseList, searchedPhrases)">
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+    </th>
+
+    <td mat-cell *matCellDef="let phrase">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onPlay(phraseList, [phrase])"
+      >
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>

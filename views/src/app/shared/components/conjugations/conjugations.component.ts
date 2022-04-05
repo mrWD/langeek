@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import axios from 'axios';
 
+import { PlayerService } from '../../services/player.service';
 import { SettingsFormService } from '../../services/settings-form.service';
 
 const mapLanguageToCode: Record<string, string> = {
@@ -31,15 +32,11 @@ export class ConjugationsComponent implements OnInit {
 
   language: string
   originLanguage: string
-  voice: any
-  speed: number
   pronounces: any[] = []
 
-  constructor(private settingsService: SettingsFormService) {
+  constructor(private settingsService: SettingsFormService, private playerService: PlayerService) {
     this.language = this.settingsService.getForm().language
     this.originLanguage = this.settingsService.getForm().originLanguage
-    this.voice = this.settingsService.getForm().voice as any
-    this.speed = this.settingsService.getForm().speed
   }
 
   async ngOnInit(): Promise<void> {
@@ -86,16 +83,7 @@ export class ConjugationsComponent implements OnInit {
       return `${acc}.\n\n${pron}\n${conjugatedVerb}`
     }, '')
 
-    const msg = new SpeechSynthesisUtterance(text)
-    
-    msg.lang = mapLanguageToCode[this.language]
-    msg.rate = this.speed
-
-    if (this.voice) {
-      msg.voice = this.voice
-    }
-
-    synth.speak(msg)
+    this.playerService.play(text)
   }
 
 }
