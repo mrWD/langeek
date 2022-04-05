@@ -1,0 +1,20 @@
+<table 
+  mat-table
+  [dataSource]="searchedPhrases"
+  class="mat-elevation-z8 col"
+>
+  <ng-container matColumnDef="originLanguage">
+    <th mat-header-cell *matHeaderCellDef>{{ originLanguage.substr(0, 3) }}</th>
+
+    <td mat-cell *matCellDef="let phrase">{{ findPhrase(phraseList, phrase, originLanguage) }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="language">
+    <th mat-header-cell *matHeaderCellDef>{{ language.substr(0, 3) }}</th>
+
+    <td mat-cell *matCellDef="let phrase">{{ findPhrase(phraseList, phrase, language) }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

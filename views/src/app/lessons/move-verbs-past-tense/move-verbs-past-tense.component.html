@@ -1,0 +1,36 @@
+<section>
+  <h1>{{ contentTextService.moveVerbsPastTense.mainTitle }}</h1>
+
+  <!-- TODO: как отключить М и Ж род -->
+
+  <p>{{ contentTextService.moveVerbsPastTense.text1 }}</p>
+
+  <app-conjugations
+    [searchedVerbs]="VERBS"
+    [verbList]="conjugationsService.pastTenseConjugations"
+    [wordList]="translationsService.words"
+  ></app-conjugations>
+
+  <p>{{ contentTextService.moveVerbsPastTense.text2 }}</p>
+
+  <app-translations
+    [searchedPhrases]="WORDS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.moveVerbsPastTense.text3 }}</p>
+
+  <app-phrases
+    [searchedPhrases]="QUESTIONS"
+    [phraseList]="translationsService.questions"
+  ></app-phrases>
+
+  <p>{{ contentTextService.moveVerbsPastTense.text4 }}</p>
+
+  <p>{{ contentTextService.moveVerbsPastTense.text5 }}</p>
+</section>
+
+<app-lessons-navigation
+  prevLink="/lesson-4"
+  nextLink="/lesson-6"
+></app-lessons-navigation>

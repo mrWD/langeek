@@ -1,0 +1,20 @@
+th
+  text-transform: uppercase
+
+td
+  text-transform: capitalize
+
+.row
+  display: flex
+  flex-wrap: wrap
+
+.col
+  width: 100%
+  margin-bottom: 16px
+
+  @media screen and (min-width: 726px)
+    width: calc(33.3333333% - 16px)
+    margin-right: 16px
+
+  @media screen and (min-width: 1024px)
+    width: calc(33.3333333% - 16px)

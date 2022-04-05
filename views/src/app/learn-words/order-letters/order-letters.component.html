@@ -1,0 +1,25 @@
+<section>
+  <h1>Order letters</h1>
+
+  <h2>{{ translation }}</h2>
+
+  <mat-list-item *ngFor="let letter of arrayFromString; let i = index">
+    <button mat-raised-button [color]="letter ? 'primary' : 'accent'" (click)="removeLetter(i)">
+      <mat-icon *ngIf="!letter">horizontal_rule</mat-icon>
+  
+      <span>{{ letter }}</span>
+  
+      <mat-icon *ngIf="letter === ' '" color="primary">check_box_outline_blank</mat-icon>
+    </button>
+  </mat-list-item>
+  
+  <hr>
+  
+  <mat-list-item *ngFor="let letter of shuffledString; let i = index">
+    <button mat-raised-button color="primary" (click)="addLetter(letter, i)">
+      <span>{{ letter }}</span>
+  
+      <mat-icon *ngIf="letter === ' '" color="primary">check_box_outline_blank</mat-icon>
+    </button>
+  </mat-list-item>
+</section>

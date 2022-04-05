@@ -1,0 +1,73 @@
+<section>
+  <h1>{{ contentTextService.tellAboutYourself.mainTitle }}</h1>
+
+  <p>{{ contentTextService.tellAboutYourself.text1 }}</p>
+
+  <app-phrases
+    [searchedPhrases]="QUESTIONS"
+    [phraseList]="translationsService.questions"
+  ></app-phrases>
+
+  <p>{{ contentTextService.tellAboutYourself.text2 }}</p>
+
+  <app-translations
+    [searchedPhrases]="VERBS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.tellAboutYourself.text3 }}</p>
+
+  <app-translations
+    [searchedPhrases]="QUESTION_WORDS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.tellAboutYourself.listTitle }}</p>
+
+  <p>{{ contentTextService.tellAboutYourself.listDescription }}</p>
+
+  <mat-list>
+    <mat-list-item *ngFor="let textList of contentTextService.tellAboutYourself.list">
+      <p *ngFor="let text of textList">
+        {{ text }}
+      </p>
+    </mat-list-item>
+  </mat-list>
+
+  <p>{{ contentTextService.tellAboutYourself.text4 }}</p>
+
+  <app-translations
+    [searchedPhrases]="WORDS_1"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <!-- TODO: Как выглядят сущ. во мн. числе -->
+  <!-- TODO: Как выглядят артикли -->
+
+  <p>{{ contentTextService.tellAboutYourself.text5 }}</p>
+
+  <app-translations
+    [searchedPhrases]="WORDS_2"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <app-translations
+    [searchedPhrases]="WORDS_3"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <app-translations
+    [searchedPhrases]="WORDS_4"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <app-translations
+    [searchedPhrases]="WORDS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+</section>
+
+<app-lessons-navigation
+  prevLink="/lesson-3"
+  nextLink="/lesson-5"
+></app-lessons-navigation>

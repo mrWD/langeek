@@ -1,0 +1,31 @@
+<div class="columns">
+  <mat-list>
+    <mat-list-item *ngFor="let word of translationsService.words; let i = index">
+      <button
+        [class.mat-button-disabled]="firstChosenIndex === i"
+        [class.mat-accent]="matchedList[i] >= 0"
+        [class.mat-primary]="matchedList[i] >= 0 && checkValidation(matchedList[i], i)"
+        [class.mat-warn]="matchedList[i] >= 0 && !checkValidation(matchedList[i], i)"
+        mat-raised-button
+        (click)="chooseWord(i, 'firstChosenIndex')"
+      >
+        {{ word[language] }}
+      </button>
+    </mat-list-item>
+  </mat-list>
+
+  <mat-list>
+    <mat-list-item *ngFor="let word of shuffeledTranslations; let i = index">
+      <button
+        [class.mat-button-disabled]="secondChosenIndex === i"
+        [class.mat-accent]="matchedList.includes(i)"
+        [class.mat-primary]="matchedList.indexOf(i) > -1 && checkValidation(i, matchedList.indexOf(i))"
+        [class.mat-warn]="matchedList.indexOf(i) > -1 && !checkValidation(i, matchedList.indexOf(i))"
+        mat-raised-button
+        (click)="chooseWord(i, 'secondChosenIndex')"
+      >
+        {{ word[originLanguage] }}
+      </button>
+    </mat-list-item>
+  </mat-list>
+</div>

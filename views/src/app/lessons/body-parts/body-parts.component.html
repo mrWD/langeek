@@ -1,0 +1,57 @@
+<section>
+  <h1>{{ contentTextService.bodyParts.mainTitle }}</h1>
+
+  <p>{{ contentTextService.bodyParts.text1 }}</p>
+
+  <app-translations
+    [searchedPhrases]="BODY"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.bodyParts.text2 }}</p>
+
+  <app-translations
+    [searchedPhrases]="COLORS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.bodyParts.text3 }}</p>
+
+  <app-translations
+    [searchedPhrases]="CLOTHES"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.bodyParts.text4 }}</p>
+
+  <app-phrases
+    [searchedPhrases]="QUESTIONS"
+    [phraseList]="translationsService.questions"
+  ></app-phrases>
+
+  <p>{{ contentTextService.bodyParts.text5 }}</p>
+
+  <app-phrases
+    [searchedPhrases]="TRANSLATIONS"
+    [phraseList]="translationsService.phrases"
+  ></app-phrases>
+
+  <p>{{ contentTextService.bodyParts.text6 }}</p>
+
+  <app-translations
+    [searchedPhrases]="WORDS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.bodyParts.text7 }}</p>
+
+  <app-translations
+    [searchedPhrases]="VERBS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+</section>
+
+<app-lessons-navigation
+  prevLink="/lesson-13"
+  nextLink="/lesson-15"
+></app-lessons-navigation>

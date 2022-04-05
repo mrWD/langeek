@@ -1,0 +1,63 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Your Language</mat-label>
+
+    <select
+      class="field"
+      id="originLanguage"
+      name="originLanguage"
+      formControlName="originLanguage"
+      matNativeControl
+    >
+      <option value="english">English</option>
+      <option value="german">German</option>
+      <option value="italian">Italian</option>
+      <option value="french">French</option>
+      <option value="russian">Russian</option>
+      <option value="polish">Polish</option>
+    </select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label for="language">Language</mat-label>
+
+    <select
+      class="field"
+      id="language"
+      name="language"
+      formControlName="language"
+      matNativeControl
+    >
+      <option value="english">English</option>
+      <option value="german">German</option>
+      <option value="italian">Italian</option>
+      <option value="french">French</option>
+      <option value="russian">Russian</option>
+      <option value="polish">Polish</option>
+    </select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label for="voice">Voice</mat-label>
+
+    <select
+      class="field"
+      id="voice"
+      name="voice"
+      formControlName="voice"
+      matNativeControl
+    >
+      <option *ngFor="let voice of voices" [value]="voice.name">{{ voice.name }}: {{ voice.lang }}</option>
+    </select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label for="speed">Speed od reading</mat-label>
+
+    <input matInput name="speed" name="speed" type="number" formControlName="speed">
+  </mat-form-field>
+
+  <br>
+
+  <button mat-raised-button type="submit">Submit</button>
+</form>

@@ -1,0 +1,34 @@
+<section>
+  <h1>{{ contentTextService.cases.mainTitle }}</h1>
+
+  <p>{{ contentTextService.cases.text1 }}</p>
+
+  <p>{{ contentTextService.cases.text2 }}</p>
+
+  <app-translations
+    [searchedPhrases]="WORDS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.cases.text3 }}</p>
+
+  <app-translations
+    [searchedPhrases]="VERBS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.cases.text4 }}</p>
+
+  <app-phrases
+    [searchedPhrases]="TRANSLATIONS"
+    [phraseList]="translationsService.phrases"
+  ></app-phrases>
+
+  <!-- TODO: падежи -->
+
+</section>
+
+<app-lessons-navigation
+  prevLink="/lesson-12"
+  nextLink="/lesson-14"
+></app-lessons-navigation>

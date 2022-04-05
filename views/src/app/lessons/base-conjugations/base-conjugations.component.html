@@ -1,0 +1,44 @@
+<section>
+  <h1>{{ contentTextService.baseConjugations.mainTitle }}</h1>
+
+  <p *ngFor="let text of contentTextService.baseConjugations.textList">
+    {{ text }}
+  </p>
+</section>
+
+<section>
+  <h2>{{ contentTextService.baseConjugations.title1 }}</h2>
+
+  <p>{{ contentTextService.baseConjugations.textForFirstVerb }}</p>
+
+  <app-conjugations
+    [searchedVerbs]="[FIRST_CONJUGATION]"
+    [verbList]="conjugationsService.presentTenseConjugations"
+    [wordList]="translationsService.words"
+  ></app-conjugations>
+
+  <p>{{ contentTextService.baseConjugations.textForRestVerbs }}</p>
+
+  <app-conjugations
+    [searchedVerbs]="VERB_LIST"
+    [verbList]="conjugationsService.presentTenseConjugations"
+    [wordList]="translationsService.words"
+  ></app-conjugations>
+</section>
+
+<section>
+  <h2>{{ contentTextService.baseConjugations.title2 }}</h2>
+
+  <p>{{ contentTextService.baseConjugations.textForNegativeSentence }}</p>
+
+  <app-conjugations
+    [searchedVerbs]="NEGATIVE_VERB_LIST"
+    [verbList]="conjugationsService.presentTenseNegativeConjugations"
+    [wordList]="translationsService.words"
+  ></app-conjugations>
+</section>
+
+<app-lessons-navigation
+  prevLink="/"
+  nextLink="/lesson-2"
+></app-lessons-navigation>

@@ -1,0 +1,51 @@
+<section>
+  <h1>{{ contentTextService.profession.mainTitle }}</h1>
+
+  <p>{{ contentTextService.profession.text1 }}</p>
+
+  <app-conjugations
+    [searchedVerbs]="MAIN_VERBS"
+    [verbList]="conjugationsService.presentTenseConjugations"
+    [wordList]="translationsService.words"
+  ></app-conjugations>
+
+  <p>{{ contentTextService.profession.text2 }}</p>
+
+  <app-conjugations
+    [searchedVerbs]="QUESTION_VERBS"
+    [verbList]="conjugationsService.presentTenseQuestionConjugations"
+    [wordList]="translationsService.words"
+  ></app-conjugations>
+
+  <p>{{ contentTextService.profession.text3 }}</p>
+
+  <app-translations
+    [searchedPhrases]="QUESTION_WORDS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.profession.text4 }}</p>
+
+  <app-translations
+    [searchedPhrases]="PROFESSIONS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.profession.text5 }}</p>
+
+  <app-phrases
+    [searchedPhrases]="QUESTIONS"
+    [phraseList]="translationsService.questions"
+  ></app-phrases>
+
+  <app-conjugations
+    [searchedVerbs]="VERBS"
+    [verbList]="conjugationsService.presentTenseConjugations"
+    [wordList]="translationsService.words"
+  ></app-conjugations>
+</section>
+
+<app-lessons-navigation
+  prevLink="/lesson-2"
+  nextLink="/lesson-4"
+></app-lessons-navigation>

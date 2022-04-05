@@ -1,0 +1,21 @@
+<mat-toolbar>
+  <nav class="nav">
+    <mat-nav-list class="nav__list">
+      <mat-list-item *ngFor="let nav of navigation">
+        <!-- <a *ngIf="!nav.linkList" [routerLink]="nav.link" mat-button>{{ nav.name }}</a> -->
+        
+        <button *ngIf="nav.linkList" [matMenuTriggerFor]="menu" mat-button>{{ nav.name }}</button>
+
+        <mat-menu #menu="matMenu">
+          <a
+            *ngFor="let link of nav.linkList"
+            [routerLink]="link.link"
+            mat-menu-item
+          >
+            {{ link.name }}
+          </a>
+        </mat-menu>
+      </mat-list-item>
+    </mat-nav-list>
+  </nav>
+</mat-toolbar>

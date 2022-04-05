@@ -1,0 +1,38 @@
+<section>
+  <h1>{{ contentTextService.pronounDeclension.mainTitle }}</h1>
+
+  <p>{{ contentTextService.pronounDeclension.text1 }}</p>
+
+  <app-translations
+    [searchedPhrases]="PRONOUNCES"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.pronounDeclension.text2 }}</p>
+
+  <app-translations
+    [searchedPhrases]="PREPOSITIONS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.pronounDeclension.text3 }}</p>
+
+  <app-phrases
+    [searchedPhrases]="QUESTIONS"
+    [phraseList]="translationsService.questions"
+  ></app-phrases>
+
+  <p>{{ contentTextService.pronounDeclension.text4 }}</p>
+
+  <app-phrases
+    [searchedPhrases]="TRANSLATIONS"
+    [phraseList]="translationsService.phrases"
+  ></app-phrases>
+
+  <p>{{ contentTextService.pronounDeclension.text5 }}</p>
+</section>
+
+<app-lessons-navigation
+  prevLink="/lesson-6"
+  nextLink="/lesson-8"
+></app-lessons-navigation>

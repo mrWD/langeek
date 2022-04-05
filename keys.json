@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gleaming-realm-344916",
+  "private_key_id": "fb37ee97b25b332010b6589636fa0638311736c7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCrTGzlbk8gQane\nl6C+HaaaeWvjCKDFiurvM36ASZOcCCL6vHHN8ah0Xa1wSbl4T0mwDPgCR8ALqcGL\nkL+3xQbEC19MzMnrW2vsv5UvEOC8Gn4mpLu5FMz7vVp08+5Tc0xqKnGh3cjZgcwn\nZl8ivEJal/atSidZwDyX0GvtqdZtSGbUaZURi6NUj8DGQ6RqBAAWn6v7lXQ2FF4t\nZbpGo29MUCSkugxkzt//jDpInQY8z/8Noq8r0zlJXJn85kWCvudbIGYnULMY6LDi\n21NCz2ASYqBiRh+3JypOlWMEGW+RTKy/5XMfAxJN5LjXMCbq6ZVj9pq8Y+7r/Q1X\njOSyy3pxAgMBAAECggEAAy9pfnYnw0EpUhXmc6aMPqbXmFoEmEvCHNbLqUHE/IOj\nt98ZbCOMVvaXdyUtzVSHGZ6SHYO9SNI8IrbbM8T2gF54RA6ySf2yEu3Ijb6d+S1y\nb1BEm9dMzPkLRa2z/qoAD6DQqlp8BbxdwhVLm1MeFj5pZDVC6E60abvCyAFulutY\nA9Y5Hv9fRUdVgpOghCfCuAFu6YNYR16dLn58jfxr1o73tsxcA8gIhorQ9mr19Jv6\nq2Ov4z7xJ3v3x7wtBWnBg55tradJMm+EvGhSsDPb22FUS0HJfGtdAp4FE9hHhaly\n8A6tAE29ZFLRWWn915TasPJi9mQL2BEPrDT3Tm4DaQKBgQDrXkIdlOAHyUtOyVDI\n0urbuHI49pfVYDmxJhnR2ndZpNNy7uEDaZehUchJnr7/QGm1cb0v2BbPUvKwCzrP\nYJvNgdaIjEiOf4pbFtq5EGp67G5gneE1u5/exM2M+NjGMFxNXfKPIG7ZOXEBS7mw\nN9Sfy8kJBygiY4Tk1HUXq96MuQKBgQC6UGwd7GDD7NL/cDk9KYoimui/GngcQZ4q\nBn/qvTZ+bq1LiGdzgtw4BPPcqE7PfFj+j9I3rhpj1Vqnffs8PVX66mUxA3jF/leM\n7icu3tqg4HxkaCECaaNoN5wMKofuN1MIitzmQc3fheZaq479BpjapFHTZwg6sUvB\noAcSMG0veQKBgE2soa0ZgIWRTKUHkv1zfcZdLHTYDGuCggeQR10V9+VBm/aGFwQF\nSOEYGD0TgnzCSSB0FLdBXOW2vhiS3Cmr/D7p5l7RzPAZ7xL4i94fKMTAWfzQnY4a\nCTx/PkaTqRZex1dQ9cd+MJbHeh+vWexpwGWr3wB3uCsBJM5PvwS814khAoGBAIWU\n26+opshSqAVU5PUhL1UYU/+QbsVzln7zIguflc6Yc89QATwketf/VQjD8513vibl\n3wbk4S7q7ZBhFxxdraO1ItA9eP4cGZGFvrowNfhae1VSAzjDnNE/7bYbWFJHgFUD\nmtXMIFs+maYwkth/PmCkp7Y2jQPn0jUFE4zLA72hAoGAQ7LzmiYY1gQnOPnHxi7Z\nbNyNreD2pDlFm5NGYGa4tXFuyfAJy/yVq4NCuUlZB5PnKnZ8nQDatEazzd63KSns\ntRBgtVaTrIMnci1Guy4NTFWufIwo8bhlZrJ1x2NaCkC1tlcyGlOJBQLz5ursNc7K\nd0OdHjKYzf01jUseeCfRS0I=\n-----END PRIVATE KEY-----\n",
+  "client_email": "langeek@gleaming-realm-344916.iam.gserviceaccount.com",
+  "client_id": "107313072987367196427",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/langeek%40gleaming-realm-344916.iam.gserviceaccount.com"
+}

@@ -1,0 +1,16 @@
+<a
+  *ngIf="prevLink"
+  class="link"
+  [routerLink]="prevLink"
+  mat-raised-button
+>
+  {{ prevLinkText }}
+</a>
+
+<a
+  *ngIf="nextLink"
+  [routerLink]="nextLink"
+  mat-raised-button
+>
+  {{ nextLinkText }}
+</a>

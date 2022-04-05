@@ -1,0 +1,50 @@
+<section>
+  <h1>{{ contentTextService.ordinalNumbers.mainTitle }}</h1>
+
+  <p>{{ contentTextService.ordinalNumbers.text1 }}</p>
+
+  <app-translations
+    [searchedPhrases]="ORDINAL_NUMBERS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.ordinalNumbers.text2 }}</p>
+
+  <app-translations
+    [searchedPhrases]="SEASONS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.ordinalNumbers.text3 }}</p>
+
+  <app-translations
+    [searchedPhrases]="PHRASES"
+    [phraseList]="translationsService.phrases"
+  ></app-translations>
+
+  <p>{{ contentTextService.ordinalNumbers.text4 }}</p>
+
+  <app-translations
+    [searchedPhrases]="VERBS"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.ordinalNumbers.text5 }}</p>
+
+  <app-translations
+    [searchedPhrases]="SIDES"
+    [phraseList]="translationsService.words"
+  ></app-translations>
+
+  <p>{{ contentTextService.ordinalNumbers.text6 }}</p>
+
+  <app-phrases
+    [searchedPhrases]="QUESTIONS"
+    [phraseList]="translationsService.questions"
+  ></app-phrases>
+</section>
+
+<app-lessons-navigation
+  prevLink="/lesson-14"
+  nextLink="/lesson-16"
+></app-lessons-navigation>

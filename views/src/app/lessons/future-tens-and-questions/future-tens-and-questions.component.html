@@ -1,0 +1,39 @@
+<section>
+  <h1>{{ contentTextService.futureTensAndQuestions.mainTitle }}</h1>
+
+  <p>{{ contentTextService.futureTensAndQuestions.text1 }}</p>
+
+  <app-translations
+    [searchedPhrases]="PHRASES"
+    [phraseList]="translationsService.phrases"
+  ></app-translations>
+
+  <p>{{ contentTextService.futureTensAndQuestions.text2 }}</p>
+
+  <app-conjugations
+    [searchedVerbs]="VERB_LIST"
+    [verbList]="conjugationsService.presentTenseConjugations"
+    [wordList]="translationsService.words"
+  ></app-conjugations>
+
+  <p>{{ contentTextService.futureTensAndQuestions.text3 }}</p>
+
+  <app-conjugations
+    [searchedVerbs]="FUTURE_VERB_LIST"
+    [verbList]="conjugationsService.futureTenseConjugations"
+    [wordList]="translationsService.words"
+  ></app-conjugations>
+
+  <p>{{ contentTextService.futureTensAndQuestions.text4 }}</p>
+
+  <app-conjugations
+    [searchedVerbs]="PAST_VERB_LIST"
+    [verbList]="conjugationsService.pastTenseConjugations"
+    [wordList]="translationsService.words"
+  ></app-conjugations>
+
+  <app-lessons-navigation
+    prevLink="/lesson-1"
+    nextLink="/lesson-3"
+  ></app-lessons-navigation>
+</section>
