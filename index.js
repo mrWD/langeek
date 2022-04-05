@@ -115,10 +115,10 @@ app.get('/list', async (req, res) => {
 //   next();
 // });
 
-app.use(express.static('views/dist/langeek'));
+app.use(express.static('./views/dist/langeek'));
 
 app.get('/*', (req, res) => {
-  res.sendFile('index.html', { root: 'views/dist/langeek/' });
+  res.sendFile('index.html', { root: './views/dist/langeek/' });
 });
 
 app.listen(PORT, () => {
