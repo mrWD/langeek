@@ -1,47 +1,50 @@
 <div class="row">
-  <table 
-    mat-table
-    *ngFor="let verb of searchedVerbs"
-    [dataSource]="PRONOUNCES"
-    class="mat-elevation-z8 col"
-  >
-    <ng-container matColumnDef="originLanguage">
-      <th mat-header-cell *matHeaderCellDef>{{ originLanguage.substr(0, 3) }}</th>
+  <div class="col" *ngFor="let verb of searchedVerbs">
+    <mat-spinner class="loader" *ngIf="pending || !wordList.length || !verbList.length"></mat-spinner>
 
-      <td mat-cell *matCellDef="let pronounce">{{ findWord(pronounces, pronounce, originLanguage) }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="language">
-      <th mat-header-cell *matHeaderCellDef>{{ language.substr(0, 3) }}</th>
-
-      <td mat-cell *matCellDef="let pronounce">{{ findWord(pronounces, pronounce, language) }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="conjugations">
-      <th mat-header-cell *matHeaderCellDef>{{ showWords(verb) }}</th>
-
-      <td mat-cell *matCellDef="let pronounce">{{ findConjugation(verbList, findWord(wordList, verb, language), pronounce) }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="playConjugations">
-      <th mat-header-cell *matHeaderCellDef width="65">
-        <button mat-raised-button color="primary" (click)="onPlay(verbList, PRONOUNCES, verb)">
-          <mat-icon>play_arrow</mat-icon>
-        </button>
-      </th>
-
-      <td mat-cell *matCellDef="let pronounce">
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="onPlay(verbList, [pronounce], verb)"
-        >
-          <mat-icon>play_arrow</mat-icon>
-        </button>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+    <table
+      mat-table
+      [dataSource]="PRONOUNCES"
+      class="mat-elevation-z8 table"
+    >
+      <ng-container matColumnDef="originLanguage">
+        <th mat-header-cell *matHeaderCellDef>{{ originLanguage.substr(0, 3) }}</th>
+  
+        <td mat-cell *matCellDef="let pronounce">{{ findWord(pronounces, pronounce, originLanguage) }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="language">
+        <th mat-header-cell *matHeaderCellDef>{{ language.substr(0, 3) }}</th>
+  
+        <td mat-cell *matCellDef="let pronounce">{{ findWord(pronounces, pronounce, language) }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="conjugations">
+        <th mat-header-cell *matHeaderCellDef>{{ showWords(verb) }}</th>
+  
+        <td mat-cell *matCellDef="let pronounce">{{ findConjugation(verbList, findWord(wordList, verb, language), pronounce) }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="playConjugations">
+        <th mat-header-cell *matHeaderCellDef width="65">
+          <button mat-raised-button color="primary" (click)="onPlay(verbList, PRONOUNCES, verb)">
+            <mat-icon>play_arrow</mat-icon>
+          </button>
+        </th>
+  
+        <td mat-cell *matCellDef="let pronounce">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="onPlay(verbList, [pronounce], verb)"
+          >
+            <mat-icon>play_arrow</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
 </div>

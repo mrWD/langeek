@@ -1,24 +1,28 @@
-<mat-list>
-  <mat-list-item>
-    <button
-      color="primary"
-      mat-raised-button
-      (click)="onPlay(phraseList, searchedPhrases)"
-    >
-      <mat-icon>south</mat-icon>
-      <mat-icon>play_arrow</mat-icon>
-    </button>
-  </mat-list-item>
+<div classes="phrases">
+  <mat-spinner class="loader" *ngIf="!phraseList.length"></mat-spinner>
 
-  <mat-list-item *ngFor="let phrase of searchedPhrases">
-    {{ findWord(phraseList, phrase, language) }}
-
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="onPlay(phraseList, [phrase])"
-    >
-      <mat-icon>play_arrow</mat-icon>
-    </button>
-  </mat-list-item>
-</mat-list>
+  <mat-list>
+    <mat-list-item>
+      <button
+        color="primary"
+        mat-raised-button
+        (click)="onPlay(phraseList, searchedPhrases)"
+      >
+        <mat-icon>south</mat-icon>
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+    </mat-list-item>
+  
+    <mat-list-item *ngFor="let phrase of searchedPhrases">
+      {{ findWord(phraseList, phrase, language) }}
+  
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onPlay(phraseList, [phrase])"
+      >
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</div>

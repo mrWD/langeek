@@ -26,12 +26,16 @@ export class ConjugationsComponent implements OnInit {
   originLanguage: string
   pronounces: any[] = []
 
+  pending = false
+
   constructor(private settingsService: SettingsFormService, private playerService: PlayerService) {
     this.language = this.settingsService.getForm().language
     this.originLanguage = this.settingsService.getForm().originLanguage
   }
 
   async ngOnInit(): Promise<void> {
+    this.pending = true
+
     const pronounces = await axios.request({
       method: 'GET',
       url: 'http://localhost:3000/list',
@@ -44,7 +48,8 @@ export class ConjugationsComponent implements OnInit {
       }
     })
 
-    this.pronounces = pronounces.data;
+    this.pronounces = pronounces.data
+    this.pending = false
   }
 
   findWord(list: any[], searchPhrase: string, language: string) {
