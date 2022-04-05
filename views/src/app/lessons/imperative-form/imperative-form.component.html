@@ -1,4 +1,4 @@
-<section>
+<section class="mat-card">
   <h1>{{ contentTextService.imperativeForm.mainTitle }}</h1>
 
   <p>{{ contentTextService.imperativeForm.text1 }}</p>
@@ -35,9 +35,9 @@
     [searchedPhrases]="IMPERATIVE"
     [phraseList]="translationsService.phrases"
   ></app-translations>
-</section>
 
-<app-lessons-navigation
-  prevLink="/lesson-10"
-  nextLink="/lesson-12"
-></app-lessons-navigation>
+  <app-lessons-navigation
+    prevLink="/lesson-10"
+    nextLink="/lesson-12"
+  ></app-lessons-navigation>
+</section>

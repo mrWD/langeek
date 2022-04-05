@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
   <mat-form-field appearance="fill">
     <mat-label>Your Language</mat-label>
 
@@ -56,8 +56,6 @@
 
     <input matInput name="speed" name="speed" type="number" formControlName="speed">
   </mat-form-field>
-
-  <br>
 
   <button mat-raised-button type="submit">Submit</button>
 </form>

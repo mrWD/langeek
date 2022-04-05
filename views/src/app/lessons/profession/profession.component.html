@@ -1,4 +1,4 @@
-<section>
+<section class="mat-card">
   <h1>{{ contentTextService.profession.mainTitle }}</h1>
 
   <p>{{ contentTextService.profession.text1 }}</p>
@@ -43,9 +43,9 @@
     [verbList]="conjugationsService.presentTenseConjugations"
     [wordList]="translationsService.words"
   ></app-conjugations>
-</section>
 
-<app-lessons-navigation
-  prevLink="/lesson-2"
-  nextLink="/lesson-4"
-></app-lessons-navigation>
+  <app-lessons-navigation
+    prevLink="/lesson-2"
+    nextLink="/lesson-4"
+  ></app-lessons-navigation>
+</section>

@@ -1,9 +1,25 @@
-<app-navigation></app-navigation>
+<header class="header">
+  <mat-toolbar class="row">
+    <a mat-button routerLink="/">Home</a>
 
-<mat-card>
-  <app-settings-form></app-settings-form>
-</mat-card>
+    <app-navigation></app-navigation>
 
-<mat-card>
-  <router-outlet></router-outlet>
-</mat-card>
+    <button
+      class="example-icon"
+      mat-icon-button
+      (click)="drawer.toggle()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+</header>
+
+<mat-drawer-container hasBackdrop [autosize]="true">
+  <main class="inner">
+    <router-outlet></router-outlet>
+  </main>
+
+  <mat-drawer #drawer mode="over" position="end">
+    <app-settings-form></app-settings-form>
+  </mat-drawer>
+</mat-drawer-container>

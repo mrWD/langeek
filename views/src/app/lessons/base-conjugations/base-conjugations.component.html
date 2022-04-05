@@ -1,4 +1,4 @@
-<section>
+<section class="mat-card">
   <h1>{{ contentTextService.baseConjugations.mainTitle }}</h1>
 
   <p *ngFor="let text of contentTextService.baseConjugations.textList">
@@ -6,7 +6,7 @@
   </p>
 </section>
 
-<section>
+<section class="mat-card">
   <h2>{{ contentTextService.baseConjugations.title1 }}</h2>
 
   <p>{{ contentTextService.baseConjugations.textForFirstVerb }}</p>
@@ -26,7 +26,7 @@
   ></app-conjugations>
 </section>
 
-<section>
+<section class="mat-card">
   <h2>{{ contentTextService.baseConjugations.title2 }}</h2>
 
   <p>{{ contentTextService.baseConjugations.textForNegativeSentence }}</p>
@@ -36,9 +36,9 @@
     [verbList]="conjugationsService.presentTenseNegativeConjugations"
     [wordList]="translationsService.words"
   ></app-conjugations>
-</section>
 
-<app-lessons-navigation
-  prevLink="/"
-  nextLink="/lesson-2"
-></app-lessons-navigation>
+  <app-lessons-navigation
+    prevLink="/"
+    nextLink="/lesson-2"
+  ></app-lessons-navigation>
+</section>

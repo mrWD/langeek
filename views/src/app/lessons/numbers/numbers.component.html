@@ -1,4 +1,4 @@
-<section>
+<section class="mat-card">
   <h1>{{ contentTextService.numbers.mainTitle }}</h1>
 
   <p>{{ contentTextService.numbers.text1 }}</p>
@@ -56,9 +56,9 @@
     [searchedPhrases]="QUESTIONS"
     [phraseList]="translationsService.questions"
   ></app-phrases>
-</section>
 
-<app-lessons-navigation
-  prevLink="/lesson-9"
-  nextLink="/lesson-11"
-></app-lessons-navigation>
+  <app-lessons-navigation
+    prevLink="/lesson-9"
+    nextLink="/lesson-11"
+  ></app-lessons-navigation>
+</section>
