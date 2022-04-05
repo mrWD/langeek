@@ -79,7 +79,7 @@ export class ConjugationsComponent implements OnInit {
 
   onPlay(list: any[], pronounsList: string[], verb: string) {
     const text = pronounsList.reduce((acc, pronouns) => {
-      const pron = this.findWord(this.wordList, pronouns, this.language)
+      const pron = this.findWord(this.pronounces, pronouns, this.language)
       const infinitive = this.findWord(this.wordList, verb, this.language)
       const conjugatedVerb = this.findConjugation(list, infinitive, pronouns)
 
@@ -87,8 +87,6 @@ export class ConjugationsComponent implements OnInit {
     }, '')
 
     const msg = new SpeechSynthesisUtterance(text)
-
-    console.log(this.settingsService.getForm())
     
     msg.lang = mapLanguageToCode[this.language]
     msg.rate = this.speed

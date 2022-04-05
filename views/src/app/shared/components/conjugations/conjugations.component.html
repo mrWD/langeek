@@ -31,7 +31,11 @@
       </th>
 
       <td mat-cell *matCellDef="let pronounce">
-        <button mat-raised-button color="primary" (click)="onPlay(verbList, [pronounce], verb)">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onPlay(verbList, [pronounce], verb)"
+        >
           <mat-icon>play_arrow</mat-icon>
         </button>
       </td>
