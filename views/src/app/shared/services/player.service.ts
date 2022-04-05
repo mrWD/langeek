@@ -4,8 +4,11 @@ import { SettingsFormService } from './settings-form.service';
 
 const mapLanguageToCode: Record<string, string> = {
   english: 'en-EN',
-  italian: 'it-IT',
+  german: 'de-DE',
+  russian: 'ru-RU',
   polish: 'pl-PL',
+  italian: 'it-IT',
+  french: 'fr-FR',
 }
 
 @Injectable({
@@ -21,8 +24,11 @@ export class PlayerService {
     msg.lang = mapLanguageToCode[this.settingsService.getForm().language]
     msg.rate = this.settingsService.getForm().speed
 
-    if (this.settingsService.getForm().voice) {
-      msg.voice = this.settingsService.getForm().voice
+    const voice = window.speechSynthesis
+      .getVoices().find((v) => v.name === this.settingsService.getForm().voice && v.lang === msg.lang)
+
+    if (voice) {
+      msg.voice = voice
     }
 
     window.speechSynthesis.speak(msg)

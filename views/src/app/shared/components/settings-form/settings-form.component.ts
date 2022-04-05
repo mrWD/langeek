@@ -6,8 +6,11 @@ import { SettingsFormService } from '../../services/settings-form.service';
 
 const mapLanguageToCode: Record<string, string> = {
   english: 'en',
-  italian: 'it',
+  german: 'de',
+  russian: 'ru',
   polish: 'pl',
+  italian: 'it',
+  french: 'fr',
 }
 
 @Component({
@@ -31,6 +34,14 @@ export class SettingsFormComponent implements OnInit {
     private settingsService: SettingsFormService,
     private router: Router,
   ) {
+    this.updateReaderList()
+  }
+
+  get voice() {
+    return this.voices.find(({ name }) => name === this.form.value.voice)
+  }
+
+  updateReaderList() {
     setTimeout(() => {
       this.voices = window.speechSynthesis
         .getVoices()
@@ -38,10 +49,6 @@ export class SettingsFormComponent implements OnInit {
 
       this.form.controls['voice'].setValue(this.voices[0].name ?? null);
     })
-  }
-
-  get voice() {
-    return this.voices.find(({ name }) => name === this.form.value.voice)
   }
 
   onSubmit() {

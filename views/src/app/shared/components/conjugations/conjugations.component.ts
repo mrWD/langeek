@@ -4,14 +4,6 @@ import axios from 'axios';
 import { PlayerService } from '../../services/player.service';
 import { SettingsFormService } from '../../services/settings-form.service';
 
-const mapLanguageToCode: Record<string, string> = {
-  english: 'en-EN',
-  italian: 'it-IT',
-  polish: 'pl-PL',
-}
-
-const synth = window.speechSynthesis
-
 @Component({
   selector: 'app-conjugations',
   templateUrl: './conjugations.component.html',
@@ -27,7 +19,7 @@ export class ConjugationsComponent implements OnInit {
   @Input()
   wordList!: any[]
 
-  PRONOUNCES = ['I', 'you', 'he', 'she', 'it', 'we', 'you (plural)', 'they (musc)', 'they (fem)', 'respect']
+  PRONOUNCES = ['I', 'you', 'he', 'she', 'it', 'we', 'you (plural)', 'they', 'respect']
   displayedColumns = ['originLanguage', 'language', 'conjugations', 'playConjugations']
 
   language: string

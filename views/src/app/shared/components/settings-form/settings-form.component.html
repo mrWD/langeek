@@ -27,6 +27,7 @@
       name="language"
       formControlName="language"
       matNativeControl
+      (ngModelChange)="updateReaderList()"
     >
       <option value="english">English</option>
       <option value="german">German</option>
