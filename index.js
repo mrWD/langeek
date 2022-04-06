@@ -85,35 +85,33 @@ app.get('/list', async (req, res) => {
     ['https://www.googleapis.com/auth/spreadsheets'],
   )
 
-  try {
-    client.authorize(async (err, tokens) => {
-      try {
-        if (err) {
-          throw err
-        }
-
-        const data = await getData(client, {
-          sheet: req.query.sheet,
-          name: req.query.name,
-          lang: req.query.lang,
-          nativeLang: req.query.nativeLang,
-          words: req.query.words,
-        })
-
-        res.json(data)
-      } catch (err) {
-        console.log('Error: ', err.message)
-        res.status(400).send({
-          message: err.message
-        })
+  client.authorize(async (err, tokens) => {
+    try {
+      if (err) {
+        console.log('has error:', err);
+        throw err
       }
-    })
-  } catch (err) {
-    console.log('Error: ', err.message)
-    res.status(400).send({
-      message: err.message
-    })
-  }
+
+      console.log('req start');
+
+      const data = await getData(client, {
+        sheet: req.query.sheet,
+        name: req.query.name,
+        lang: req.query.lang,
+        nativeLang: req.query.nativeLang,
+        words: req.query.words,
+      })
+
+      console.log('req success');
+
+      res.json(data)
+    } catch (err) {
+      console.log('Error: ', err.message)
+      res.status(400).send({
+        message: err.message
+      })
+    }
+  })
 })
 
 // app.use((req, res, next) => {
@@ -126,7 +124,7 @@ app.get('/list', async (req, res) => {
 
 app.use(express.static('./views/dist/langeek'));
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile('index.html', { root: './views/dist/langeek/' });
 });
 
