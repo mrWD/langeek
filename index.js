@@ -54,7 +54,7 @@ const getConjugations = (tableColNames, translationList) => {
 }
 
 // infinitive + pronounces
-const gsrun = async (cl, params) => {
+const getData = async (cl, params) => {
   const gsapi = google.sheets({ version: 'v4', auth: cl })
   const opt = {
     spreadsheetId: mapLanguageToSheetId[params.sheet],
@@ -85,26 +85,31 @@ app.get('/list', async (req, res) => {
     ['https://www.googleapis.com/auth/spreadsheets'],
   )
 
-  client.authorize(async (err, tokens) => {
-    try {
-      if (err) {
-        throw err
+  try {
+    client.authorize(async (err, tokens) => {
+      try {
+        if (err) {
+          throw err
+        }
+
+        const data = await getData(client, {
+          sheet: req.query.sheet,
+          name: req.query.name,
+          lang: req.query.lang,
+          nativeLang: req.query.nativeLang,
+          words: req.query.words,
+        })
+
+        res.json(data)
+      } catch (err) {
+        console.log('Error: ', err)
+        res.json(err)
       }
-  
-      const data = await gsrun(client, {
-        sheet: req.query.sheet,
-        name: req.query.name,
-        lang: req.query.lang,
-        nativeLang: req.query.nativeLang,
-        words: req.query.words,
-      })
-  
-      res.json(data)
-    } catch (error) {
-      console.log('Error: ', err)
-      res.json(err)
-    }
-  })
+    })
+  } catch (err) {
+    console.log('Error: ', err)
+    res.json(err)
+  }
 })
 
 // app.use((req, res, next) => {
