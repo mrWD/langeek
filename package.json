@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build": "cd views && npm run build && cd ../"
+    "build-front": "cd views && npm run build && cd ../"
   },
   "author": "",
   "license": "ISC",
