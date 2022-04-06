@@ -102,13 +102,13 @@ app.get('/list', async (req, res) => {
 
         res.json(data)
       } catch (err) {
-        console.log('Error: ', err)
-        res.json(err)
+        console.log('Error: ', err.message)
+        res.json(err.message)
       }
     })
   } catch (err) {
-    console.log('Error: ', err)
-    res.json(err)
+    console.log('Error: ', err.message)
+    res.json(err.message)
   }
 })
 
