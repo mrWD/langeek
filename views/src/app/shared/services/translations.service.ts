@@ -17,7 +17,7 @@ export class TranslationsService {
   async getWords(verbs: string[]) {
     const words = await axios.request({
       method: 'GET',
-      url: 'http://localhost:3000/list',
+      url: '/list',
       params: {
         sheet: 'common',
         name: 'Words',
@@ -33,7 +33,7 @@ export class TranslationsService {
   async getPhrases(verbs: string[]) {
     const phrases = await axios.request({
       method: 'GET',
-      url: 'http://localhost:3000/list',
+      url: '/list',
       params: {
         sheet: 'common',
         name: 'Phrases',
@@ -49,7 +49,7 @@ export class TranslationsService {
   async getQuestions(verbs: string[]) {
     const questions = await axios.request({
       method: 'GET',
-      url: 'http://localhost:3000/list',
+      url: '/list',
       params: {
         sheet: 'common',
         name: 'Questions',

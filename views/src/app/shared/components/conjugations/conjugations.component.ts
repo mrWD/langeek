@@ -38,7 +38,7 @@ export class ConjugationsComponent implements OnInit {
 
     const pronounces = await axios.request({
       method: 'GET',
-      url: 'http://localhost:3000/list',
+      url: '/list',
       params: {
         sheet: 'common',
         name: 'Words',

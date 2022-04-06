@@ -25,7 +25,7 @@ export class ConjugationsService {
   private generateParams(name: string, words: string[]) {
     return {
       method: 'GET',
-      url: 'http://localhost:3000/list',
+      url: '/list',
       params: {
         name,
         words,
