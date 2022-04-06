@@ -126,7 +126,7 @@ app.get('/list', async (req, res) => {
 
 app.use(express.static('./views/dist/langeek'));
 
-app.get('/*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile('index.html', { root: './views/dist/langeek/' });
 });
 
