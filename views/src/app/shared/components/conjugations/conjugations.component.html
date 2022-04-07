@@ -3,7 +3,7 @@
     <mat-expansion-panel
       *ngFor="let verb of searchedVerbs"
       [expanded]="searchedVerbs.length === 1"
-      hideToggle>
+    >
       <mat-expansion-panel-header *ngIf="searchedVerbs.length > 1">
         <mat-panel-title>{{ showWords(verb) }}</mat-panel-title>
       </mat-expansion-panel-header>
