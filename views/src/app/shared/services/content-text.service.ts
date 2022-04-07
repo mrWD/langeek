@@ -69,6 +69,10 @@ const mapLangToContent = (lang: string): any => ({
       text1: 'Two more important verbs in all languages are the verbs to be and to have. Here is their conjugation in the present tense and in the negative:',
       text2: 'Learn a few phrases to start a conversation:',
       text3: 'Now we will learn how to say that we once did or did not do something:',
+      subtitle1: 'Past Tense:',
+      subtitle2: 'Negative Past Tense:',
+      subtitle3: 'Future Tense:',
+      subtitle4: 'Negative Future Tense:',
       text4: 'Now we will learn how to say that we once did or didn’t do something And a few more useful words:',
     },
     profession: {

@@ -3,34 +3,125 @@
 
   <p>{{ contentTextService.futureTensAndQuestions.text1 }}</p>
 
-  <app-translations
-    [searchedPhrases]="PHRASES"
-    [phraseList]="translationsService.phrases"
-  ></app-translations>
+  <div class="row">
+    <app-conjugations
+      [searchedVerbs]="[MAIN_VERB_LIST[0]]"
+      [verbList]="conjugationsService.presentTenseConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
 
+    <app-conjugations
+      [searchedVerbs]="[MAIN_VERB_LIST[1]]"
+      [verbList]="conjugationsService.presentTenseConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
+
+<section class="mat-card">
   <p>{{ contentTextService.futureTensAndQuestions.text2 }}</p>
 
-  <app-conjugations
-    [searchedVerbs]="VERB_LIST"
-    [verbList]="conjugationsService.presentTenseConjugations"
-    [wordList]="translationsService.words"
-  ></app-conjugations>
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="PHRASES_1"
+      [phraseList]="translationsService.phrases"
+    ></app-translations>
 
+    <app-translations
+      [searchedPhrases]="PHRASES_2"
+      [phraseList]="translationsService.phrases"
+    ></app-translations>
+
+    <app-translations
+      [searchedPhrases]="PHRASES_3"
+      [phraseList]="translationsService.phrases"
+    ></app-translations>
+  </div>
+</section>
+
+<section class="mat-card">
   <p>{{ contentTextService.futureTensAndQuestions.text3 }}</p>
 
-  <app-conjugations
-    [searchedVerbs]="FUTURE_VERB_LIST"
-    [verbList]="conjugationsService.futureTenseConjugations"
-    [wordList]="translationsService.words"
-  ></app-conjugations>
+  <h2>{{ contentTextService.futureTensAndQuestions.subtitle1 }}</h2>
 
-  <p>{{ contentTextService.futureTensAndQuestions.text4 }}</p>
+  <div class="row">
+    <app-conjugations
+      [searchedVerbs]="PAST_VERB"
+      [verbList]="conjugationsService.pastTenseConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
 
-  <app-conjugations
-    [searchedVerbs]="PAST_VERB_LIST"
-    [verbList]="conjugationsService.pastTenseConjugations"
-    [wordList]="translationsService.words"
-  ></app-conjugations>
+    <app-conjugations
+      [searchedVerbs]="PAST_VERB_LIST"
+      [verbList]="conjugationsService.pastTenseConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.futureTensAndQuestions.subtitle2 }}</h2>
+
+  <div class="row">
+    <app-conjugations
+      [searchedVerbs]="PAST_NEGATIVE_VERB"
+      [verbList]="conjugationsService.pastTenseNegativeConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+
+    <app-conjugations
+      [searchedVerbs]="PAST_NEGATIVE_VERB_LIST"
+      [verbList]="conjugationsService.pastTenseNegativeConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.futureTensAndQuestions.subtitle3 }}</h2>
+
+  <div class="row">
+    <app-conjugations
+      [searchedVerbs]="FUTURE_VERB"
+      [verbList]="conjugationsService.futureTenseConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+
+    <app-conjugations
+      [searchedVerbs]="FUTURE_VERB_LIST"
+      [verbList]="conjugationsService.futureTenseConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.futureTensAndQuestions.subtitle4 }}</h2>
+
+  <div class="row">
+    <app-conjugations
+      [searchedVerbs]="FUTURE_NEGATIVE_VERB"
+      [verbList]="conjugationsService.futureTenseNegativeConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+
+    <app-conjugations
+      [searchedVerbs]="FUTURE_NEGATIVE_VERB_LIST"
+      [verbList]="conjugationsService.futureTenseNegativeConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.futureTensAndQuestions.text4 }}</h2>
+
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="REST_WORDS"
+      [phraseList]="translationsService.phrases"
+    ></app-translations>
+</div>
 
   <app-lessons-navigation
     prevLink="/lesson-1"

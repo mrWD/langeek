@@ -4,38 +4,48 @@ import { ContentTextService } from '../../shared/services/content-text.service';
 import { TranslationsService } from '../../shared/services/translations.service';
 import { ConjugationsService } from '../../shared/services/conjugations.service';
 
-const phrases = [
-  'Good Morning',
-  'Good afternoon',
-  'Good evening',
-  'Goodnight',
-  'How are you',
-  'Good',
-  'Very good',
-  'Thanks',
-  'Please',
-  'Please',
-  'Goodbye',
-  'Hey',
-  'already',
-  'already saw',
-  'Yes',
-  'No',
-  'rejoice',
-  'joy',
-  'afraid',
-]
-
 @Component({
   selector: 'app-future-tens-and-questions',
   templateUrl: './future-tens-and-questions.component.html',
   styleUrls: ['./future-tens-and-questions.component.sass']
 })
 export class FutureTensAndQuestionsComponent implements OnInit {
-  VERB_LIST = ['to be', 'to have']
-  PAST_VERB_LIST = ['to watch', 'to visit', 'to have breakfast', 'to make', 'to write']
-  FUTURE_VERB_LIST = ['to travel', 'to live', 'to cook', 'to play', 'to be sorry']
-  PHRASES = phrases
+  MAIN_VERB_LIST = ['to be', 'to have']
+
+  PHRASES_1 = [
+    'Good Morning',
+    'Good afternoon',
+    'Good evening',
+    'Goodnight',
+  ]
+
+  PHRASES_2 = [
+    'How are you',
+    'Good',
+    'Very good',
+    'Thanks',
+  ]
+
+  PHRASES_3 = [
+    'Please',
+    'Please',
+    'Goodbye',
+    'Hey',
+  ]
+
+  PAST_VERB = ['to watch']
+  PAST_VERB_LIST = ['to visit', 'to have breakfast']
+
+  PAST_NEGATIVE_VERB = ['to make']
+  PAST_NEGATIVE_VERB_LIST = ['to write', 'to be sorry']
+
+  FUTURE_VERB = ['to travel']
+  FUTURE_VERB_LIST = ['to live', 'to listen']
+
+  FUTURE_NEGATIVE_VERB = ['to cook']
+  FUTURE_NEGATIVE_VERB_LIST = ['to die', 'to play']
+
+  REST_WORDS = ['Yes', 'No', 'already']
 
   constructor(
     public contentTextService: ContentTextService,
@@ -44,11 +54,36 @@ export class FutureTensAndQuestionsComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
-    this.translationsService.getWords([...this.VERB_LIST, ...this.PAST_VERB_LIST, ...this.FUTURE_VERB_LIST])
-    this.translationsService.getPhrases(this.PHRASES)
-    this.conjugationsService.getConjugationsForPresentTense(this.VERB_LIST)
-    this.conjugationsService.getConjugationsForPastTense(this.PAST_VERB_LIST)
-    this.conjugationsService.getConjugationsForFutureTense(this.FUTURE_VERB_LIST)
+    const pastVerbs = [
+      ...this.PAST_VERB,
+      ...this.PAST_VERB_LIST,
+    ];
+    const pastNegativeVerbs = [
+      ...this.PAST_NEGATIVE_VERB,
+      ...this.PAST_NEGATIVE_VERB_LIST,
+    ];
+    const futureVerbs = [
+      ...this.FUTURE_VERB,
+      ...this.FUTURE_VERB_LIST,
+    ];
+    const futureNegativeVerbs = [
+      ...this.FUTURE_NEGATIVE_VERB,
+      ...this.FUTURE_NEGATIVE_VERB_LIST,
+    ];
+    const allVerbs = [
+      ...this.MAIN_VERB_LIST,
+      ...pastVerbs,
+      ...pastNegativeVerbs,
+      ...futureVerbs,
+      ...futureNegativeVerbs,
+    ]
+    this.translationsService.getWords(allVerbs)
+    this.translationsService.getPhrases([...this.PHRASES_1, ...this.PHRASES_2, ...this.PHRASES_3, ...this.REST_WORDS])
+    this.conjugationsService.getConjugationsForPresentTense(this.MAIN_VERB_LIST)
+    this.conjugationsService.getConjugationsForPastTense(pastVerbs)
+    this.conjugationsService.getConjugationsForNegativePastTense(pastNegativeVerbs)
+    this.conjugationsService.getConjugationsForFutureTense(futureVerbs)
+    this.conjugationsService.getConjugationsForNegativeFutureTense(futureNegativeVerbs)
   }
 
 }
