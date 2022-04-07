@@ -19,13 +19,13 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 
 const mapLanguageToSheetId = {
-  common: '1Hc-qLLUo6Zoe0lkKDuLcwgAjWgUcb1foGefJmpcScG8',
-  english: '1gCaGW-Sj7N3a153Q3X08sRNpU7c1bF28Pvbgc6mBiNI',
-  german: '1HlJXcR2eGurEi-yNM7Rt-zOU2K60_fLALHKhm7RKETY',
-  italian: '1Us81XWAi9q11JQutXbIQymmKCWBbsWQw5MIBop1i_6Y',
-  french: '1e5Bhn2NvwRXs39pCremU7L-FTRnX3TWtf7YPshBMcqI',
-  polish: '1z_VsuStMYhIbGnKSQLdtuJAxjSzxvrQIMT9Zfiuhhs4',
-  russian: '1FZH6lwL7lDOc1RcOZ19iKy_XqyuZrRjvVwevQudbRss',
+  common: '10yvq_gIteRc4zt4ZiR4tjPKAZN9oIMxYkVynb53B6MQ',
+  english: '1mjpE9l-_PjNaqcjmkNNUHauvPjuqGXyomXCI2ywcjR0',
+  german: '1WkYS-OqQTILxrsBvC7aP5lmacsMPplUnsvpxwCrfl4g',
+  italian: '1rEQvViKUoVb-jVr7o4tarrSyEQMmnYLEhqlLBFToomg',
+  french: '1G55xbdwCX90F9OIPgFtwCdXFi8tiWovn5KCeY0vyqQk',
+  polish: '14GjmV2GvLxVEAJPxj_SkdVAzh_QvdS4Ln5LeICScYHM',
+  russian: '1IUYXG57P9rGz2VBu2vUmFIggMIDDcOFysy9wCOb_d_o',
 }
 
 const getTranslations = (tableColNames, translationList, params) => {
