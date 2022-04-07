@@ -5,28 +5,10 @@ td
   text-transform: capitalize
 
 .row
-  display: flex
-  flex-wrap: wrap
-
-.table
-  width: 100%
-
-.loader
-  position: absolute
-  top: 0
-  bottom: 0
-  left: 0
-  right: 0
-  margin: auto
-
-.col
-  position: relative
-  width: 100%
+  display: inline-flex
+  flex-direction: column
   margin-bottom: 16px
 
-  @media screen and (min-width: 726px)
-    width: calc(50% - 16px)
-    margin-right: 16px
-
-  @media screen and (min-width: 1024px)
-    width: calc(33.3333333% - 16px)
+.table
+  min-width: calc(100% + 48px)
+  margin: 0 -24px -16px

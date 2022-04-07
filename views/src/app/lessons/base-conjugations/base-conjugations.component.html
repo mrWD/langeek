@@ -12,7 +12,7 @@
   <p>{{ contentTextService.baseConjugations.textForFirstVerb }}</p>
 
   <app-conjugations
-    [searchedVerbs]="[FIRST_CONJUGATION]"
+    [searchedVerbs]="[FIRST_VERB]"
     [verbList]="conjugationsService.presentTenseConjugations"
     [wordList]="translationsService.words"
   ></app-conjugations>
@@ -32,13 +32,23 @@
   <p>{{ contentTextService.baseConjugations.textForNegativeSentence }}</p>
 
   <app-conjugations
+    [searchedVerbs]="[FIRST_NEGATIVE_VERB]"
+    [verbList]="conjugationsService.presentTenseNegativeConjugations"
+    [wordList]="translationsService.words"
+  ></app-conjugations>
+
+  <p>{{ contentTextService.baseConjugations.textForRestVerbs }}</p>
+
+  <app-conjugations
     [searchedVerbs]="NEGATIVE_VERB_LIST"
     [verbList]="conjugationsService.presentTenseNegativeConjugations"
     [wordList]="translationsService.words"
   ></app-conjugations>
 
-  <app-lessons-navigation
-    prevLink="/"
-    nextLink="/lesson-2"
-  ></app-lessons-navigation>
+  <div>
+    <app-lessons-navigation
+      prevLink="/"
+      nextLink="/lesson-2"
+    ></app-lessons-navigation>
+  </div>
 </section>

@@ -13,9 +13,10 @@ export class BaseConjugationsComponent implements OnInit {
   voice?: SpeechSynthesisVoice
   speed: number = 1
 
-  FIRST_CONJUGATION = 'to speak'
+  FIRST_VERB = 'to speak'
   VERB_LIST = ['to eat', 'to sing', 'to think', 'to dance']
-  NEGATIVE_VERB_LIST = ['to search', 'to find', 'to love', 'to listen', 'to go']
+  FIRST_NEGATIVE_VERB = 'to search'
+  NEGATIVE_VERB_LIST = ['to find', 'to love', 'to listen', 'to go']
 
   constructor(
     public contentTextService: ContentTextService,
@@ -24,11 +25,13 @@ export class BaseConjugationsComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
-    const verbs = [this.FIRST_CONJUGATION, ...this.VERB_LIST, ...this.NEGATIVE_VERB_LIST]
+    const verbs = [this.FIRST_VERB, ...this.VERB_LIST]
+    const negativeVerbs = [this.FIRST_NEGATIVE_VERB, ...this.NEGATIVE_VERB_LIST]
+    const allVerbs = [...verbs, ...negativeVerbs]
 
-    this.translationsService.getWords(verbs)
+    this.translationsService.getWords(allVerbs)
     this.conjugationsService.getConjugationsForPresentTense(verbs)
-    this.conjugationsService.getConjugationsForNegativePresentTense(verbs)
+    this.conjugationsService.getConjugationsForNegativePresentTense(negativeVerbs)
   }
 
 }

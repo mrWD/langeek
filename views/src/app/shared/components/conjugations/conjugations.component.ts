@@ -26,6 +26,7 @@ export class ConjugationsComponent implements OnInit {
   originLanguage: string
   pronounces: any[] = []
 
+  collapsedBlocks = []
   pending = false
 
   constructor(private settingsService: SettingsFormService, private playerService: PlayerService) {
@@ -50,6 +51,10 @@ export class ConjugationsComponent implements OnInit {
 
     this.pronounces = pronounces.data
     this.pending = false
+  }
+
+  toggleTable(value: string) {
+    this.collapsedBlocks = []
   }
 
   findWord(list: any[], searchPhrase: string, language: string) {
