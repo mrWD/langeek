@@ -3,26 +3,56 @@
 
   <p>{{ contentTextService.tellAboutYourself.text1 }}</p>
 
-  <app-phrases
-    [searchedPhrases]="QUESTIONS"
-    [phraseList]="translationsService.questions"
-  ></app-phrases>
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
 
-  <p>{{ contentTextService.tellAboutYourself.text2 }}</p>
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseNegativeTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
 
-  <app-translations
-    [searchedPhrases]="VERBS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseFutureTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.tellAboutYourself.text2 }}</h2>
+
+  <div class="row">
+    <app-phrases
+      [searchedPhrases]="QUESTIONS"
+      [phraseList]="translationsService.questions"
+    ></app-phrases>
+  </div>
 
   <p>{{ contentTextService.tellAboutYourself.text3 }}</p>
 
-  <app-translations
-    [searchedPhrases]="QUESTION_WORDS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+  <div class="row">
+    <app-phrases
+      [searchedPhrases]="ANSWERS"
+      [phraseList]="translationsService.phrases"
+    ></app-phrases>
+  </div>
+</section>
 
-  <p>{{ contentTextService.tellAboutYourself.listTitle }}</p>
+<section class="mat-card">
+  <h2>{{ contentTextService.tellAboutYourself.listTitle }}</h2>
 
   <p>{{ contentTextService.tellAboutYourself.listDescription }}</p>
 
@@ -33,38 +63,46 @@
       </p>
     </mat-list-item>
   </mat-list>
+</section>
 
-  <p>{{ contentTextService.tellAboutYourself.text4 }}</p>
+<section class="mat-card">
+  <h2>{{ contentTextService.tellAboutYourself.text4 }}</h2>
 
-  <app-translations
-    [searchedPhrases]="WORDS_1"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="NEW_WORDS"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
+</section>
 
-  <!-- TODO: Как выглядят сущ. во мн. числе -->
-  <!-- TODO: Как выглядят артикли -->
+<!-- TODO: Как выглядят сущ. во мн. числе -->
+<!-- TODO: Как выглядят артикли -->
 
+<section class="mat-card">
   <p>{{ contentTextService.tellAboutYourself.text5 }}</p>
 
-  <app-translations
-    [searchedPhrases]="WORDS_2"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="WORDS_1"
+      [phraseList]="translationsService.words"
+    ></app-translations>
 
-  <app-translations
-    [searchedPhrases]="WORDS_3"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+    <app-translations
+      [searchedPhrases]="WORDS_2"
+      [phraseList]="translationsService.words"
+    ></app-translations>
 
-  <app-translations
-    [searchedPhrases]="WORDS_4"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+    <app-translations
+      [searchedPhrases]="WORDS_3"
+      [phraseList]="translationsService.words"
+    ></app-translations>
 
-  <app-translations
-    [searchedPhrases]="WORDS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+    <app-translations
+      [searchedPhrases]="WORDS_4"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
 
   <app-lessons-navigation
     prevLink="/lesson-3"

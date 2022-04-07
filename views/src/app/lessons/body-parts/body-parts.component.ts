@@ -10,6 +10,11 @@ import { ConjugationsService } from '../../shared/services/conjugations.service'
   styleUrls: ['./body-parts.component.sass']
 })
 export class BodyPartsComponent implements OnInit {
+
+  baseTenses = ['presentTenseConjugations', 'pastTenseConjugations', 'futureTenseConjugations'] as const;
+  baseNegativeTenses = ['presentTenseNegativeConjugations', 'pastTenseNegativeConjugations', 'futureTenseNegativeConjugations'] as const;
+  baseFutureTenses = ['presentTenseQuestionConjugations', 'pastTenseQuestionConjugations', 'futureTenseQuestionConjugations'] as const;
+
   BODY = ['eyes', 'eye', 'hair', 'bold', 'beard', 'mouth', 'head', 'heart', 'hands', 'legs']
   COLORS = ['color', 'white', 'black', 'red', 'blue', 'yellow', 'green', 'brown', 'gray', 'light', 'dark']
   CLOTHES = ['dress', 'shirt', 'shoes', 'boots', 'trousers']
@@ -30,6 +35,18 @@ export class BodyPartsComponent implements OnInit {
     this.translationsService.getQuestions(this.QUESTIONS)
     this.translationsService.getWords(words)
     this.translationsService.getPhrases(this.TRANSLATIONS)
+
+    this.conjugationsService.getConjugationsForPresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForPastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForFutureTense(this.VERBS)
+
+    this.conjugationsService.getConjugationsForNegativePresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForNegativePastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForNegativeFutureTense(this.VERBS)
+
+    this.conjugationsService.getConjugationsForQuestionPresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForQuestionPastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForQuestionFutureTense(this.VERBS)
   }
 
 }

@@ -2,33 +2,62 @@
   <h1>{{ contentTextService.cases.mainTitle }}</h1>
 
   <p>{{ contentTextService.cases.text1 }}</p>
+</section>
 
+<section class="mat-card">
   <p>{{ contentTextService.cases.text2 }}</p>
 
   <app-translations
     [searchedPhrases]="WORDS"
     [phraseList]="translationsService.words"
   ></app-translations>
+</section>
 
+<section class="mat-card">
   <p>{{ contentTextService.cases.text3 }}</p>
 
-  <app-translations
-    [searchedPhrases]="VERBS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
 
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseNegativeTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseFutureTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
+
+<section class="mat-card">
   <p>{{ contentTextService.cases.text4 }}</p>
 
   <app-phrases
     [searchedPhrases]="TRANSLATIONS"
     [phraseList]="translationsService.phrases"
   ></app-phrases>
+</section>
 
-  <!-- TODO: падежи -->
+<!-- TODO: падежи -->
 
+<div class="mat-card">
   <app-lessons-navigation
     prevLink="/lesson-12"
     nextLink="/lesson-14"
   ></app-lessons-navigation>
-
-</section>
+</div>

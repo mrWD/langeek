@@ -3,46 +3,106 @@
 
   <p>{{ contentTextService.profession.text1 }}</p>
 
-  <app-conjugations
-    [searchedVerbs]="MAIN_VERBS"
-    [verbList]="conjugationsService.presentTenseConjugations"
-    [wordList]="translationsService.words"
-  ></app-conjugations>
+  <div class="row" *ngFor="let verb of MAIN_VERBS">
+    <app-conjugations
+      *ngFor="let tense of TENSES"
+      [searchedVerbs]="[verb]"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
 
+<!-- Present question -->
+<section class="mat-card">
   <p>{{ contentTextService.profession.text2 }}</p>
 
-  <app-conjugations
-    [searchedVerbs]="QUESTION_VERBS"
-    [verbList]="conjugationsService.presentTenseQuestionConjugations"
-    [wordList]="translationsService.words"
-  ></app-conjugations>
+  <h2>{{ contentTextService.profession.subtitle1 }}</h2>
 
-  <p>{{ contentTextService.profession.text3 }}</p>
+  <div class="row">
+    <app-conjugations
+      [searchedVerbs]="QUESTION_PRESENT_VERB"
+      [verbList]="conjugationsService.presentTenseQuestionConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  
+    <app-conjugations
+      [searchedVerbs]="QUESTION_PRESENT_VERB_LIST"
+      [verbList]="conjugationsService.presentTenseQuestionConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
 
-  <app-translations
-    [searchedPhrases]="QUESTION_WORDS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+<!-- Past question -->
+<section class="mat-card">
+  <h2>{{ contentTextService.profession.subtitle2 }}</h2>
 
-  <p>{{ contentTextService.profession.text4 }}</p>
+  <div class="row">
+    <app-conjugations
+      [searchedVerbs]="QUESTION_PAST_VERB"
+      [verbList]="conjugationsService.pastTenseConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  
+    <app-conjugations
+      [searchedVerbs]="QUESTION_PAST_VERB_LIST"
+      [verbList]="conjugationsService.pastTenseConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
 
-  <app-translations
-    [searchedPhrases]="PROFESSIONS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+<!-- Future question -->
+<section class="mat-card">
+  <h2>{{ contentTextService.profession.subtitle3 }}</h2>
 
-  <p>{{ contentTextService.profession.text5 }}</p>
+  <div class="row">
+    <app-conjugations
+      [searchedVerbs]="QUESTION_FUTURE_VERB"
+      [verbList]="conjugationsService.futureTenseConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  
+    <app-conjugations
+      [searchedVerbs]="QUESTION_FUTURE_VERB_LIST"
+      [verbList]="conjugationsService.futureTenseConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
 
-  <app-phrases
-    [searchedPhrases]="QUESTIONS"
-    [phraseList]="translationsService.questions"
-  ></app-phrases>
+<section class="mat-card">
+  <h2>{{ contentTextService.profession.text3 }}</h2>
 
-  <app-conjugations
-    [searchedVerbs]="VERBS"
-    [verbList]="conjugationsService.presentTenseConjugations"
-    [wordList]="translationsService.words"
-  ></app-conjugations>
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="PROFESSIONS"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.profession.text4 }}</h2>
+
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="QUESTION_WORDS"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.profession.text5 }}</h2>
+
+  <div class="row">
+    <app-phrases
+      [searchedPhrases]="QUESTIONS"
+      [phraseList]="translationsService.questions"
+    ></app-phrases>
+  </div>
 
   <app-lessons-navigation
     prevLink="/lesson-2"

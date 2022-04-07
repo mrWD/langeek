@@ -1,36 +1,73 @@
 <section class="mat-card">
   <h1>{{ contentTextService.moveVerbsPastTense.mainTitle }}</h1>
 
-  <!-- TODO: как отключить М и Ж род -->
-
   <p>{{ contentTextService.moveVerbsPastTense.text1 }}</p>
 
-  <app-conjugations
-    [searchedVerbs]="VERBS"
-    [verbList]="conjugationsService.pastTenseConjugations"
-    [wordList]="translationsService.words"
-  ></app-conjugations>
+  <div class="row">
+    <app-conjugations
+      [searchedVerbs]="FIRST_VERB"
+      [verbList]="conjugationsService.pastTenseConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
 
-  <p>{{ contentTextService.moveVerbsPastTense.text2 }}</p>
+    <app-conjugations
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService.pastTenseConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+    </div>
 
-  <app-translations
-    [searchedPhrases]="WORDS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
-
-  <p>{{ contentTextService.moveVerbsPastTense.text3 }}</p>
-
-  <app-phrases
-    [searchedPhrases]="QUESTIONS"
-    [phraseList]="translationsService.questions"
-  ></app-phrases>
-
-  <p>{{ contentTextService.moveVerbsPastTense.text4 }}</p>
-
-  <p>{{ contentTextService.moveVerbsPastTense.text5 }}</p>
+  <!-- TODO: как отключить М и Ж род -->
 </section>
 
-<app-lessons-navigation
-  prevLink="/lesson-4"
-  nextLink="/lesson-6"
-></app-lessons-navigation>
+<section class="mat-card">
+  <h2>{{ contentTextService.moveVerbsPastTense.text2 }}</h2>
+
+  <div class="row">
+    <app-conjugations
+      [searchedVerbs]="NEW_VERBS"
+      [verbList]="conjugationsService.presentTenseConjugations"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.moveVerbsPastTense.text3 }}</h2>
+
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="WORDS"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.moveVerbsPastTense.text4 }}</h2>
+
+  <div class="row">
+    <app-phrases
+      [searchedPhrases]="[QUESTIONS[0]]"
+      [phraseList]="translationsService.questions"
+    ></app-phrases>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.moveVerbsPastTense.text5 }}</h2>
+
+  <div class="row">
+    <app-phrases
+      [searchedPhrases]="[QUESTIONS[1]]"
+      [phraseList]="translationsService.questions"
+    ></app-phrases>
+  </div>
+</section>
+
+<mat-card>
+  <app-lessons-navigation
+    prevLink="/lesson-4"
+    nextLink="/lesson-6"
+  ></app-lessons-navigation>
+</mat-card>

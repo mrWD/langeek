@@ -3,41 +3,81 @@
 
   <p>{{ contentTextService.imperativeForm.text1 }}</p>
 
-  <app-phrases
-    [searchedPhrases]="QUESTIONS"
-    [phraseList]="translationsService.questions"
-  ></app-phrases>
+  <div class="row">
+    <app-phrases
+      [searchedPhrases]="QUESTIONS"
+      [phraseList]="translationsService.questions"
+    ></app-phrases>
+  </div>
+</section>
 
+<section class="mat-card">
   <p>{{ contentTextService.imperativeForm.text2 }}</p>
 
-  <app-translations
-    [searchedPhrases]="VERBS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+  <div class="row">
+    <app-phrases
+      [searchedPhrases]="TRANSLATIONS"
+      [phraseList]="translationsService.phrases"
+    ></app-phrases>
+  </div>
+</section>
 
+<section class="mat-card">
   <p>{{ contentTextService.imperativeForm.text3 }}</p>
 
-  <app-translations
-    [searchedPhrases]="WORDS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
 
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseNegativeTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseFutureTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
+
+<section class="mat-card">
   <p>{{ contentTextService.imperativeForm.text4 }}</p>
 
-  <app-phrases
-    [searchedPhrases]="TRANSLATIONS"
-    [phraseList]="translationsService.phrases"
-  ></app-phrases>
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="WORDS"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
+</section>
 
+<section class="mat-card">
   <p>{{ contentTextService.imperativeForm.text5 }}</p>
 
-  <app-translations
-    [searchedPhrases]="IMPERATIVE"
-    [phraseList]="translationsService.phrases"
-  ></app-translations>
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="IMPERATIVE"
+      [phraseList]="translationsService.phrases"
+    ></app-translations>
+  </div>
+</section>
 
+<div class="mat-card">
   <app-lessons-navigation
     prevLink="/lesson-10"
     nextLink="/lesson-12"
   ></app-lessons-navigation>
-</section>
+</div>

@@ -10,12 +10,13 @@ import { ConjugationsService } from '../../shared/services/conjugations.service'
   styleUrls: ['./move-verbs-past-tense.component.sass']
 })
 export class MoveVerbsPastTenseComponent implements OnInit {
-  VERBS = ['to go', 'to come', 'to enter', 'to quit', 'to born', 'to die', 'to leave', 'to fall', 'to drink', 'to stay', 'to sit', 'to walk', 'to run']
+  FIRST_VERB = ['to go']
+  VERBS = ['to come', 'to enter', 'to quit', 'to born', 'to die', 'to leave']
+
+  NEW_VERBS = ['to fall', 'to drink', 'to stay', 'to sit', 'to walk', 'to run']
+
   WORDS = ['welcome', 'excuse me', 'of course', 'for', 'also', 'yesterday', 'today', 'tomorrow', 'now']
   QUESTIONS = ['What did you do yesterday evening', 'What will you do today evening']
-
-  title: string = ''
-  description: string = ''
 
   constructor(
     public contentTextService: ContentTextService,
@@ -24,8 +25,10 @@ export class MoveVerbsPastTenseComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
-    this.conjugationsService.getConjugationsForPastTense(this.VERBS)
-    this.translationsService.getWords([...this.WORDS, ...this.VERBS])
+    this.translationsService.getWords([...this.FIRST_VERB, ...this.WORDS, ...this.VERBS, ...this.NEW_VERBS])
+
+    this.conjugationsService.getConjugationsForPastTense([...this.FIRST_VERB, ...this.VERBS])
+    this.conjugationsService.getConjugationsForPresentTense(this.NEW_VERBS)
     this.translationsService.getQuestions(this.QUESTIONS)
   }
 

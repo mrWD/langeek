@@ -10,6 +10,11 @@ import { ConjugationsService } from '../../shared/services/conjugations.service'
   styleUrls: ['./imperative-form.component.sass']
 })
 export class ImperativeFormComponent implements OnInit {
+
+  baseTenses = ['presentTenseConjugations', 'pastTenseConjugations', 'futureTenseConjugations'] as const;
+  baseNegativeTenses = ['presentTenseNegativeConjugations', 'pastTenseNegativeConjugations', 'futureTenseNegativeConjugations'] as const;
+  baseFutureTenses = ['presentTenseQuestionConjugations', 'pastTenseQuestionConjugations', 'futureTenseQuestionConjugations'] as const;
+
   QUESTIONS = ['What is your name?', 'How old are you?', 'Where do you work', 'What is your profession', 'What do you like to do?', 'Where do you live', 'When is your birthday?', 'Tell about your family']
   VERBS = [
     'must',
@@ -60,6 +65,18 @@ export class ImperativeFormComponent implements OnInit {
     this.translationsService.getWords([...this.WORDS, ...this.VERBS])
     this.translationsService.getQuestions(this.QUESTIONS)
     this.translationsService.getPhrases([...this.TRANSLATIONS, ...this.IMPERATIVE])
+
+    this.conjugationsService.getConjugationsForPresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForPastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForFutureTense(this.VERBS)
+
+    this.conjugationsService.getConjugationsForNegativePresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForNegativePastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForNegativeFutureTense(this.VERBS)
+
+    this.conjugationsService.getConjugationsForQuestionPresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForQuestionPastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForQuestionFutureTense(this.VERBS)
   }
 
 }

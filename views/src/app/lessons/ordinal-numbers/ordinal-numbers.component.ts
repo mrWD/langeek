@@ -10,6 +10,11 @@ import { ConjugationsService } from '../../shared/services/conjugations.service'
   styleUrls: ['./ordinal-numbers.component.sass']
 })
 export class OrdinalNumbersComponent implements OnInit {
+
+  baseTenses = ['presentTenseConjugations', 'pastTenseConjugations', 'futureTenseConjugations'] as const;
+  baseNegativeTenses = ['presentTenseNegativeConjugations', 'pastTenseNegativeConjugations', 'futureTenseNegativeConjugations'] as const;
+  baseFutureTenses = ['presentTenseQuestionConjugations', 'pastTenseQuestionConjugations', 'futureTenseQuestionConjugations'] as const;
+
   ORDINAL_NUMBERS = [
     'first',
     'second',
@@ -114,6 +119,18 @@ export class OrdinalNumbersComponent implements OnInit {
     this.translationsService.getWords(words)
     this.translationsService.getQuestions(this.QUESTIONS)
     this.translationsService.getPhrases(this.PHRASES)
+
+    this.conjugationsService.getConjugationsForPresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForPastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForFutureTense(this.VERBS)
+
+    this.conjugationsService.getConjugationsForNegativePresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForNegativePastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForNegativeFutureTense(this.VERBS)
+
+    this.conjugationsService.getConjugationsForQuestionPresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForQuestionPastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForQuestionFutureTense(this.VERBS)
   }
 
 }

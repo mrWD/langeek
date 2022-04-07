@@ -10,6 +10,11 @@ import { ConjugationsService } from '../../shared/services/conjugations.service'
   styleUrls: ['./directions.component.sass'],
 })
 export class DirectionsComponent implements OnInit {
+
+  baseTenses = ['presentTenseConjugations', 'pastTenseConjugations', 'futureTenseConjugations'] as const;
+  baseNegativeTenses = ['presentTenseNegativeConjugations', 'pastTenseNegativeConjugations', 'futureTenseNegativeConjugations'] as const;
+  baseFutureTenses = ['presentTenseQuestionConjugations', 'pastTenseQuestionConjugations', 'futureTenseQuestionConjugations'] as const;
+
   WORDS = ['despite the', 'hapiness', 'word', 'easy', 'simple', 'hard', 'smart', 'stupid', 'once', 'someday', 'shy', 'immidiately', 'jealous', 'people', 'image', 'the same']
   VERBS = ['to cry', 'to be bored', 'to dream', 'to decide', 'to feel', 'to feel (yourself)', 'to turn', 'to imagine', 'to change']
   DIRECTIONS = ['on left', 'on the left side', 'on right', 'on the right side', 'straight', 'back', 'forward']
@@ -29,6 +34,18 @@ export class DirectionsComponent implements OnInit {
     this.translationsService.getWords(words)
     this.translationsService.getQuestions(this.QUESTIONS)
     this.translationsService.getPhrases([...this.PHRASES, ...this.TRANSLATIONS])
+
+    this.conjugationsService.getConjugationsForPresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForPastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForFutureTense(this.VERBS)
+
+    this.conjugationsService.getConjugationsForNegativePresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForNegativePastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForNegativeFutureTense(this.VERBS)
+
+    this.conjugationsService.getConjugationsForQuestionPresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForQuestionPastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForQuestionFutureTense(this.VERBS)
   }
 
 }

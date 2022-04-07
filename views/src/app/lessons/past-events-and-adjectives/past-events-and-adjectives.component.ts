@@ -10,6 +10,11 @@ import { ConjugationsService } from '../../shared/services/conjugations.service'
   styleUrls: ['./past-events-and-adjectives.component.sass']
 })
 export class PastEventsAndAdjectivesComponent implements OnInit {
+
+  baseTenses = ['presentTenseConjugations', 'pastTenseConjugations', 'futureTenseConjugations'] as const;
+  baseNegativeTenses = ['presentTenseNegativeConjugations', 'pastTenseNegativeConjugations', 'futureTenseNegativeConjugations'] as const;
+  baseFutureTenses = ['presentTenseQuestionConjugations', 'pastTenseQuestionConjugations', 'futureTenseQuestionConjugations'] as const;
+
   TRANSLATIONS = [
     'I did sport yesturday evening, because I want to become strong',
     'better late than never',
@@ -73,6 +78,18 @@ export class PastEventsAndAdjectivesComponent implements OnInit {
     this.translationsService.getWords(words)
     this.translationsService.getQuestions(this.QUESTIONS)
     this.translationsService.getPhrases([...this.TRANSLATIONS, ...this.PHRASES])
+
+    this.conjugationsService.getConjugationsForPresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForPastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForFutureTense(this.VERBS)
+
+    this.conjugationsService.getConjugationsForNegativePresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForNegativePastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForNegativeFutureTense(this.VERBS)
+
+    this.conjugationsService.getConjugationsForQuestionPresentTense(this.VERBS)
+    this.conjugationsService.getConjugationsForQuestionPastTense(this.VERBS)
+    this.conjugationsService.getConjugationsForQuestionFutureTense(this.VERBS)
   }
 
 }
