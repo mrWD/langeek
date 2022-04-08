@@ -10,6 +10,11 @@ import { ConjugationsService } from '../../shared/services/conjugations.service'
   styleUrls: ['./possessive-pronouns.component.sass']
 })
 export class PossessivePronounsComponent implements OnInit {
+
+  baseTenses = ['presentTenseConjugations', 'pastTenseConjugations', 'futureTenseConjugations'] as const;
+  baseNegativeTenses = ['presentTenseNegativeConjugations', 'pastTenseNegativeConjugations', 'futureTenseNegativeConjugations'] as const;
+  baseFutureTenses = ['presentTenseQuestionConjugations', 'pastTenseQuestionConjugations', 'futureTenseQuestionConjugations'] as const;
+
   PRONOUNCES = [
     'me (who)',
     'me (whom)',
@@ -53,7 +58,6 @@ export class PossessivePronounsComponent implements OnInit {
     'i am at home',
     'i go home',
   ]
-  QUESTIONS = ['What did you do yesterday']
   WEEK_DAYS = [
     'monday',
     'tuesday',
@@ -92,8 +96,9 @@ export class PossessivePronounsComponent implements OnInit {
     const words = [...this.WORDS, ...this.VERBS, ...this.PRONOUNCES, ...this.PREPOSITIONS, ...this.WEEK_DAYS]
 
     this.translationsService.getWords(words)
-    this.translationsService.getQuestions(this.QUESTIONS)
     this.translationsService.getPhrases(this.TRANSLATIONS)
+
+    this.conjugationsService.getAllConjugations(this.VERBS)
   }
 
 }

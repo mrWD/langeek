@@ -1,59 +1,98 @@
 <section class="mat-card">
   <h1>{{ contentTextService.possessivePronouns.mainTitle }}</h1>
 
-  <p>{{ contentTextService.possessivePronouns.text1 }}</p>
+  <h2>{{ contentTextService.possessivePronouns.text1 }}</h2>
 
-  <app-translations
-    [searchedPhrases]="PRONOUNCES"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="PRONOUNCES"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
+</section>
 
-  <p>{{ contentTextService.possessivePronouns.text2 }}</p>
+<section class="mat-card">
+  <h2>{{ contentTextService.possessivePronouns.text2 }}</h2>
 
-  <app-translations
-    [searchedPhrases]="PREPOSITIONS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="PREPOSITIONS"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
+</section>
 
-  <p>{{ contentTextService.possessivePronouns.text3 }}</p>
+<section class="mat-card">
+  <h2>{{ contentTextService.possessivePronouns.text3 }}</h2>
 
-  <app-phrases
-    [searchedPhrases]="VERBS"
-    [phraseList]="translationsService.words"
-  ></app-phrases>
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
 
-  <p>{{ contentTextService.possessivePronouns.text4 }}</p>
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseNegativeTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
 
-  <app-phrases
-    [searchedPhrases]="WORDS"
-    [phraseList]="translationsService.words"
-  ></app-phrases>
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseFutureTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
 
-  <p>{{ contentTextService.possessivePronouns.text5 }}</p>
+<section class="mat-card">
+  <h2>{{ contentTextService.possessivePronouns.text4 }}</h2>
 
-  <app-phrases
-    [searchedPhrases]="QUESTIONS"
-    [phraseList]="translationsService.questions"
-  ></app-phrases>
+  <div class="row">
+    <app-phrases
+      [searchedPhrases]="TRANSLATIONS"
+      [phraseList]="translationsService.phrases"
+    ></app-phrases>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.possessivePronouns.text5 }}</h2>
+
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="WORDS"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
 
   <p>{{ contentTextService.possessivePronouns.text6 }}</p>
+</section>
 
-  <app-phrases
-    [searchedPhrases]="WEEK_DAYS"
-    [phraseList]="translationsService.words"
-  ></app-phrases>
+<section class="mat-card">
+  <h2>{{ contentTextService.possessivePronouns.text7 }}</h2>
 
-  <p>{{ contentTextService.possessivePronouns.text7 }}</p>
-
-  <app-phrases
-    [searchedPhrases]="TRANSLATIONS"
-    [phraseList]="translationsService.phrases"
-  ></app-phrases>
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="WEEK_DAYS"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
 
   <p>{{ contentTextService.possessivePronouns.text8 }}</p>
 </section>
 
-<app-lessons-navigation
-  prevLink="/lesson-6"
-  nextLink="/lesson-8"
-></app-lessons-navigation>
+<div class="mat-card">
+  <app-lessons-navigation
+    prevLink="/lesson-6"
+    nextLink="/lesson-8"
+  ></app-lessons-navigation>
+</div>

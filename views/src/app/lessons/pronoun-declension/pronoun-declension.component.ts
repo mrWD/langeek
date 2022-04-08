@@ -41,6 +41,7 @@ export class PronounDeclensionComponent implements OnInit {
     'we saw her',
     'I do not see you',
   ]
+  ADJECTIVES = ['happy', 'sad']
 
   constructor(
     public contentTextService: ContentTextService,
@@ -49,7 +50,7 @@ export class PronounDeclensionComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
-    this.translationsService.getWords([...this.PRONOUNCES, ...this.PREPOSITIONS])
+    this.translationsService.getWords([...this.PRONOUNCES, ...this.PREPOSITIONS, ...this.ADJECTIVES])
     this.translationsService.getQuestions(this.QUESTIONS)
     this.translationsService.getPhrases(this.TRANSLATIONS)
   }

@@ -7,10 +7,12 @@
 <section class="mat-card">
   <p>{{ contentTextService.cases.text2 }}</p>
 
-  <app-translations
-    [searchedPhrases]="WORDS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="WORDS"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
 </section>
 
 <section class="mat-card">

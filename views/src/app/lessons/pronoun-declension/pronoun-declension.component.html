@@ -1,38 +1,63 @@
 <section class="mat-card">
   <h1>{{ contentTextService.pronounDeclension.mainTitle }}</h1>
 
-  <p>{{ contentTextService.pronounDeclension.text1 }}</p>
+  <h2>{{ contentTextService.pronounDeclension.text1 }}</h2>
 
-  <app-translations
-    [searchedPhrases]="PRONOUNCES"
-    [phraseList]="translationsService.words"
-  ></app-translations>
-
-  <p>{{ contentTextService.pronounDeclension.text2 }}</p>
-
-  <app-translations
-    [searchedPhrases]="PREPOSITIONS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
-
-  <p>{{ contentTextService.pronounDeclension.text3 }}</p>
-
-  <app-phrases
-    [searchedPhrases]="QUESTIONS"
-    [phraseList]="translationsService.questions"
-  ></app-phrases>
-
-  <p>{{ contentTextService.pronounDeclension.text4 }}</p>
-
-  <app-phrases
-    [searchedPhrases]="TRANSLATIONS"
-    [phraseList]="translationsService.phrases"
-  ></app-phrases>
-
-  <p>{{ contentTextService.pronounDeclension.text5 }}</p>
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="PRONOUNCES"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
 </section>
 
-<app-lessons-navigation
-  prevLink="/lesson-6"
-  nextLink="/lesson-8"
-></app-lessons-navigation>
+<section class="mat-card">
+  <h2>{{ contentTextService.pronounDeclension.text2 }}</h2>
+
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="PREPOSITIONS"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.pronounDeclension.text3 }}</h2>
+
+  <div class="row">
+    <app-phrases
+      [searchedPhrases]="TRANSLATIONS"
+      [phraseList]="translationsService.phrases"
+    ></app-phrases>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.pronounDeclension.text4 }}</h2>
+
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="ADJECTIVES"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.pronounDeclension.text5 }}</h2>
+
+  <div class="row">
+    <app-phrases
+      [searchedPhrases]="QUESTIONS"
+      [phraseList]="translationsService.questions"
+    ></app-phrases>
+  </div>
+</section>
+
+<div class="mat-card">
+  <app-lessons-navigation
+    prevLink="/lesson-5"
+    nextLink="/lesson-7"
+  ></app-lessons-navigation>
+</div>

@@ -10,6 +10,11 @@ import { ConjugationsService } from '../../shared/services/conjugations.service'
   styleUrls: ['./food.component.sass']
 })
 export class FoodComponent implements OnInit {
+
+  baseTenses = ['presentTenseConjugations', 'pastTenseConjugations', 'futureTenseConjugations'] as const;
+  baseNegativeTenses = ['presentTenseNegativeConjugations', 'pastTenseNegativeConjugations', 'futureTenseNegativeConjugations'] as const;
+  baseFutureTenses = ['presentTenseQuestionConjugations', 'pastTenseQuestionConjugations', 'futureTenseQuestionConjugations'] as const;
+
   QUESTIONS = [
     'How did you spend your weekends?',
     'How did you spend the Sunday?',
@@ -34,6 +39,18 @@ export class FoodComponent implements OnInit {
     'expensive',
     'cheap',
   ]
+  TRANSLATIONS = [
+    'what do you say',
+    'what did you say',
+    'do you have lunch at home or in a restaurant today',
+    'I will eat at home',
+    'can I pay by card',
+  ]
+  QUESTIONS_2 = [
+    'Do you prefer fish or meat?',
+    'What do you prefer to drink?',
+    'What dish did you cook?',
+  ]
   FOOD = [
     'tea',
     'coffee',
@@ -50,18 +67,6 @@ export class FoodComponent implements OnInit {
     'apple',
     'potato',
     'seafood',
-  ]
-  TRANSLATIONS = [
-    'what do you say',
-    'what did you say',
-    'do you have lunch at home or in a restaurant today',
-    'I will eat at home',
-    'can I pay by card',
-  ]
-  QUESTIONS_2 = [
-    'Do you prefer fish or meat?',
-    'What do you prefer to drink?',
-    'What dish did you cook?',
   ]
   FINANCES = [
     'money',
@@ -83,6 +88,8 @@ export class FoodComponent implements OnInit {
     this.translationsService.getWords(words)
     this.translationsService.getQuestions([...this.QUESTIONS, ...this.QUESTIONS_2])
     this.translationsService.getPhrases(this.TRANSLATIONS)
+
+    this.conjugationsService.getAllConjugations(this.VERBS)
   }
 
 }

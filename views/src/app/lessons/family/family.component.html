@@ -1,52 +1,105 @@
 <section class="mat-card">
   <h1>{{ contentTextService.family.mainTitle }}</h1>
 
-  <p>{{ contentTextService.family.text1 }}</p>
+  <h2>{{ contentTextService.family.text1 }}</h2>
 
-  <app-translations
-    [searchedPhrases]="WORDS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="WORDS"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
+</section>
 
-  <p>{{ contentTextService.family.text2 }}</p>
+<section class="mat-card">
+  <h2>{{ contentTextService.family.text2 }}</h2>
 
-  <app-translations
-    [searchedPhrases]="VERBS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="PLACE_PRONOUNCES"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
+</section>
 
-  <p>{{ contentTextService.family.text3 }}</p>
+<section class="mat-card">
+  <h2>{{ contentTextService.family.text3 }}</h2>
 
-  <app-translations
-    [searchedPhrases]="NUMBERS"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
 
-  <p>{{ contentTextService.family.text4 }}</p>
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseNegativeTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
 
-  <app-translations
-    [searchedPhrases]="FAMILY"
-    [phraseList]="translationsService.words"
-  ></app-translations>
+  <div class="row">
+    <app-conjugations
+      *ngFor="let tense of baseFutureTenses"
+      [searchedVerbs]="VERBS"
+      [verbList]="conjugationsService[tense]"
+      [wordList]="translationsService.words"
+    ></app-conjugations>
+  </div>
+</section>
 
-  <p>{{ contentTextService.family.text5 }}</p>
+<section class="mat-card">
+  <h2>{{ contentTextService.family.text4 }}</h2>
 
-  <app-phrases
-    [searchedPhrases]="TRANSLATIONS"
-    [phraseList]="translationsService.phrases"
-  ></app-phrases>
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="NUMBERS"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
+</section>
 
-  <p>{{ contentTextService.family.text6 }}</p>
+<section class="mat-card">
+  <h2>{{ contentTextService.family.text5 }}</h2>
 
-  <app-phrases
-    [searchedPhrases]="QUESTIONS"
-    [phraseList]="translationsService.questions"
-  ></app-phrases>
+  <div class="row">
+    <app-phrases
+      [searchedPhrases]="TRANSLATIONS"
+      [phraseList]="translationsService.phrases"
+    ></app-phrases>
+  </div>
+</section>
 
-  <p>{{ contentTextService.family.text7 }}</p>
+<section class="mat-card">
+  <h2>{{ contentTextService.family.text6 }}</h2>
 
+  <div class="row">
+    <app-translations
+      [searchedPhrases]="FAMILY"
+      [phraseList]="translationsService.words"
+    ></app-translations>
+  </div>
+</section>
+
+<section class="mat-card">
+  <h2>{{ contentTextService.family.text7 }}</h2>
+
+  <div class="row">
+    <app-phrases
+      [searchedPhrases]="QUESTIONS"
+      [phraseList]="translationsService.questions"
+    ></app-phrases>
+  </div>
+</section>
+
+<div class="mat-card">
   <app-lessons-navigation
     prevLink="/lesson-7"
     nextLink="/lesson-9"
   ></app-lessons-navigation>
-</section>
+</div>

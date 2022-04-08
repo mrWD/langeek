@@ -10,7 +10,12 @@ import { ConjugationsService } from '../../shared/services/conjugations.service'
   styleUrls: ['./numbers.component.sass']
 })
 export class NumbersComponent implements OnInit {
-  NUMBERS = [
+
+  baseTenses = ['presentTenseConjugations', 'pastTenseConjugations', 'futureTenseConjugations'] as const;
+  baseNegativeTenses = ['presentTenseNegativeConjugations', 'pastTenseNegativeConjugations', 'futureTenseNegativeConjugations'] as const;
+  baseFutureTenses = ['presentTenseQuestionConjugations', 'pastTenseQuestionConjugations', 'futureTenseQuestionConjugations'] as const;
+
+  NUMBERS_1 = [
     'thirteen',
     'fourteen',
     'fifteen',
@@ -18,12 +23,18 @@ export class NumbersComponent implements OnInit {
     'seventeen',
     'eighteen',
     'nineteen',
+  ]
+  NUMBERS_2 = [
     'twenty',
     'thirty',
     'fourty',
     'fifty',
+    'sixty',
+    'seventy',
     'eighty',
     'ninety',
+  ]
+  NUMBERS_3 = [
     'hundred',
     'two hundret',
     'thousand',
@@ -36,16 +47,22 @@ export class NumbersComponent implements OnInit {
     'higher than he',
     'better',
   ]
-  MONTHS = [
+  MONTHS_1 = [
     'January',
     'February',
     'March',
+  ]
+  MONTHS_2 = [
     'April',
     'May',
     'June',
+  ]
+  MONTHS_3 = [
     'July',
     'August',
     'September',
+  ]
+  MONTHS_4 = [
     'October',
     'November',
     'December',
@@ -93,11 +110,15 @@ export class NumbersComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
-    const words = [...this.NUMBERS, ...this.ADJECTIVES, ...this.MONTHS, ...this.VERBS, ...this.WORDS, ...this.ORDERED_NUMBERS]
+    const months = [...this.MONTHS_1, ...this.MONTHS_2, ...this.MONTHS_3, ...this.MONTHS_4]
+    const numbers = [...this.NUMBERS_1, ...this.NUMBERS_2, ...this.NUMBERS_3]
+    const words = [...numbers, ...months, ...this.ADJECTIVES, ...this.VERBS, ...this.WORDS, ...this.ORDERED_NUMBERS]
 
     this.translationsService.getWords(words)
     this.translationsService.getQuestions(this.QUESTIONS)
     this.translationsService.getPhrases(this.TRANSLATION)
+
+    this.conjugationsService.getAllConjugations(this.VERBS)
   }
 
 }

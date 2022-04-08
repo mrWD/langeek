@@ -31,17 +31,7 @@ export class CasesComponent implements OnInit {
     this.translationsService.getWords(words)
     this.translationsService.getPhrases(this.TRANSLATIONS)
 
-    this.conjugationsService.getConjugationsForPresentTense(this.VERBS)
-    this.conjugationsService.getConjugationsForPastTense(this.VERBS)
-    this.conjugationsService.getConjugationsForFutureTense(this.VERBS)
-
-    this.conjugationsService.getConjugationsForNegativePresentTense(this.VERBS)
-    this.conjugationsService.getConjugationsForNegativePastTense(this.VERBS)
-    this.conjugationsService.getConjugationsForNegativeFutureTense(this.VERBS)
-
-    this.conjugationsService.getConjugationsForQuestionPresentTense(this.VERBS)
-    this.conjugationsService.getConjugationsForQuestionPastTense(this.VERBS)
-    this.conjugationsService.getConjugationsForQuestionFutureTense(this.VERBS)
+    this.conjugationsService.getAllConjugations(this.VERBS)
   }
 
 }

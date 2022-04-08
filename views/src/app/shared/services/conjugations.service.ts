@@ -80,4 +80,18 @@ export class ConjugationsService {
     const { data } = await axios.request(this.generateParams('FutureQuestions', verbs))
     this.futureTenseQuestionConjugations = data;
   }
+
+  getAllConjugations(verbs: string[]) {
+    this.getConjugationsForPresentTense(verbs)
+    this.getConjugationsForPastTense(verbs)
+    this.getConjugationsForFutureTense(verbs)
+
+    this.getConjugationsForNegativePresentTense(verbs)
+    this.getConjugationsForNegativePastTense(verbs)
+    this.getConjugationsForNegativeFutureTense(verbs)
+
+    this.getConjugationsForQuestionPresentTense(verbs)
+    this.getConjugationsForQuestionPastTense(verbs)
+    this.getConjugationsForQuestionFutureTense(verbs)
+  }
 }

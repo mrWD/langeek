@@ -39,17 +39,7 @@ export class TellAboutYourselfComponent implements OnInit {
     this.translationsService.getQuestions(this.QUESTIONS)
     this.translationsService.getPhrases(this.ANSWERS)
 
-    this.conjugationsService.getConjugationsForPresentTense(this.VERBS)
-    this.conjugationsService.getConjugationsForPastTense(this.VERBS)
-    this.conjugationsService.getConjugationsForFutureTense(this.VERBS)
-
-    this.conjugationsService.getConjugationsForNegativePresentTense(this.VERBS)
-    this.conjugationsService.getConjugationsForNegativePastTense(this.VERBS)
-    this.conjugationsService.getConjugationsForNegativeFutureTense(this.VERBS)
-
-    this.conjugationsService.getConjugationsForQuestionPresentTense(this.VERBS)
-    this.conjugationsService.getConjugationsForQuestionPastTense(this.VERBS)
-    this.conjugationsService.getConjugationsForQuestionFutureTense(this.VERBS)
+    this.conjugationsService.getAllConjugations(this.VERBS)
   }
 
 }

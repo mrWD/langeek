@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContentTextService } from '../../shared/services/content-text.service'
 import { TranslationsService } from '../../shared/services/translations.service';
 import { ConjugationsService } from '../../shared/services/conjugations.service';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-family',
@@ -10,7 +11,13 @@ import { ConjugationsService } from '../../shared/services/conjugations.service'
   styleUrls: ['./family.component.sass']
 })
 export class FamilyComponent implements OnInit {
-  WORDS = ['nice to meet you', 'agree', 'when (time)', 'what time is it', 'big', 'little', 'here (location)', 'here (direction)', 'there (location)', 'there (direction)',]
+
+  baseTenses = ['presentTenseConjugations', 'pastTenseConjugations', 'futureTenseConjugations'] as const;
+  baseNegativeTenses = ['presentTenseNegativeConjugations', 'pastTenseNegativeConjugations', 'futureTenseNegativeConjugations'] as const;
+  baseFutureTenses = ['presentTenseQuestionConjugations', 'pastTenseQuestionConjugations', 'futureTenseQuestionConjugations'] as const;
+
+  WORDS = ['nice to meet you', 'agree', 'when (time)', 'what time is it', 'big', 'little']
+  PLACE_PRONOUNCES = ['here (location)', 'here (direction)', 'there (location)', 'there (direction)']
   VERBS = ['to want', 'can', 'to know (something)', 'to know (somebody)', 'to recognize', 'to count',]
   NUMBERS = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'tvelve', 'half',]
   FAMILY = ['family', 'surname', 'name', 'father', 'mother', 'brother', 'sister', 'son', 'doghter', 'husband', 'wife', 'older', 'younger', 'cat', 'dog',]
@@ -24,7 +31,7 @@ export class FamilyComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
-    const words = [...this.WORDS, ...this.VERBS, ...this.NUMBERS, ...this.FAMILY]
+    const words = [...this.WORDS, ...this.PLACE_PRONOUNCES, ...this.VERBS, ...this.NUMBERS, ...this.FAMILY]
 
     this.translationsService.getWords(words)
     this.translationsService.getQuestions(this.QUESTIONS)
