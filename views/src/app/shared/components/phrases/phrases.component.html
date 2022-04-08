@@ -14,8 +14,8 @@
     </mat-list-item>
   
     <mat-list-item *ngFor="let phrase of searchedPhrases">
-      {{ findWord(phraseList, phrase, language) }}
-  
+      <p class="text">{{ findWord(phraseList, phrase, language) }}</p>
+
       <button
         mat-raised-button
         color="primary"
