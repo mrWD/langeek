@@ -43,7 +43,7 @@ export class WordListComponent implements OnInit {
 
     const { data } = await axios.request({
       method: 'GET',
-      url: 'http://localhost:3000/guest-list',
+      url: '/guest-list',
       params: {
         spreadsheetId: this.form.value.link,
         name: this.form.value.name,
