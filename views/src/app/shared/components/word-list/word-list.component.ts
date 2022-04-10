@@ -17,15 +17,22 @@ export interface DialogData {
 })
 export class WordListComponent implements OnInit {
 
+  originLanguage = 'english'
+  language = 'polish'
+
   form = new FormGroup({
     link: new FormControl(''),
     name: new FormControl(''),
   })
 
+  wordList: Array<Record<string, string>> = []
+
   constructor(
     public dialogRef: MatDialogRef<WordListComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-  ) { }
+  ) {
+    this.wordList = this.data.wordList;
+  }
 
   ngOnInit(): void {
   }
@@ -43,9 +50,10 @@ export class WordListComponent implements OnInit {
       }
     })
 
-    console.log(data)
-
     if (data) {
+      this.wordList = data.wordList
+      [this.originLanguage, this.language] = data.languages
+
       this.data.onRecieveWordList({
         wordList: data.wordList,
         languages: data.languages,

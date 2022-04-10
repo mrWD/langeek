@@ -50,7 +50,7 @@ import { ChooseTranslationComponent } from './learn-words/choose-translation/cho
 import { HomePageComponent } from './home-page/home-page.component';
 import { LessonsNavigationComponent } from './shared/components/lessons-navigation/lessons-navigation.component';
 import { AutoplayComponent } from './learn-words/autoplay/autoplay.component';
-import { WordListComponent } from './word-list/word-list.component';
+import { WordListComponent } from './shared/components/word-list/word-list.component';
 
 @NgModule({
   declarations: [

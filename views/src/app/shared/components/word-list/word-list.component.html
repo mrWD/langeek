@@ -26,7 +26,7 @@
       *ngFor="let word of data.wordList; let i = index"
       (click)="data.onPlay(i)"
     >
-      <span>{{ word['english'] }} - {{ word['polish'] }}</span>
+      <span>{{ word[originLanguage] }} - {{ word[language] }}</span>
 
       <mat-icon *ngIf="data.currentIndex === i">play_arrow</mat-icon>
     </mat-list-item>

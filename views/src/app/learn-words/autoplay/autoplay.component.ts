@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import axios from 'axios';
 
 import { PlayerService } from './../../shared/services/player.service';
-import { WordListComponent } from '../../word-list/word-list.component';
+import { WordListComponent } from '../../shared/components/word-list/word-list.component';
 
 const BOUNDS_1 = 5
 const BOUNDS_2 = 30
@@ -25,6 +25,7 @@ export class AutoplayComponent implements OnInit {
   language = 'polish'
 
   wordList = []
+  languages = []
 
   currentText: Record<string, string> = {}
 
