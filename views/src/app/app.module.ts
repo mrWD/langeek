@@ -13,6 +13,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule } from '@angular/material/dialog'
 
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -48,6 +49,8 @@ import { MatchTranslationsComponent } from './learn-words/match-translations/mat
 import { ChooseTranslationComponent } from './learn-words/choose-translation/choose-translation.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LessonsNavigationComponent } from './shared/components/lessons-navigation/lessons-navigation.component';
+import { AutoplayComponent } from './learn-words/autoplay/autoplay.component';
+import { WordListComponent } from './word-list/word-list.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +81,9 @@ import { LessonsNavigationComponent } from './shared/components/lessons-navigati
     MatchTranslationsComponent,
     ChooseTranslationComponent,
     HomePageComponent,
-    LessonsNavigationComponent
+    LessonsNavigationComponent,
+    AutoplayComponent,
+    WordListComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +104,8 @@ import { LessonsNavigationComponent } from './shared/components/lessons-navigati
     MatTabsModule,
     MatSidenavModule,
     MatProgressSpinnerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

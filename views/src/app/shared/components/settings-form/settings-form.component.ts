@@ -47,7 +47,7 @@ export class SettingsFormComponent implements OnInit {
         .getVoices()
         .filter(({ lang }) => lang.includes(mapLanguageToCode[this.form.value.language]))
 
-      this.form.controls['voice'].setValue(this.voices[0].name ?? null);
+      this.form.controls['voice'].setValue(this.voices[0]?.name ?? null);
     })
   }
 

@@ -1,0 +1,98 @@
+<mat-card class="content">
+  <mat-card class="content card">
+    <h1 class="title">{{ currentText?.[originLanguage] }}</h1>
+
+    <mat-divider></mat-divider>
+
+    <h1 class="title">{{ currentText?.[language] }}</h1>
+  </mat-card>
+
+  <div class="row">
+    <button
+      class="btn"
+      color="primary"
+      mat-mini-fab
+      (click)="goPrev()"
+    >
+      <mat-icon>skip_previous</mat-icon>
+    </button>
+
+    <button
+      class="btn"
+      color="primary"
+      mat-fab
+      (click)="isPlaying ? onPause() : onPlay()"
+    >
+      <mat-icon *ngIf="!isPlaying">play_arrow</mat-icon>
+      <mat-icon *ngIf="isPlaying">pause</mat-icon>
+    </button>
+
+    <button
+      class="btn"
+      color="primary"
+      mat-mini-fab
+      (click)="goNext()"
+    >
+      <mat-icon>skip_next</mat-icon>
+    </button>
+  </div>
+
+  <div class="row">
+    <button
+      class="btn"
+      color="primary"
+      mat-mini-fab
+      (click)="showWordList()"
+    >
+      <mat-icon>playlist_play</mat-icon>
+    </button>
+
+    <button
+      class="btn"
+      [color]="isRepeat ? 'primary' : ''"
+      mat-mini-fab
+      (click)="toggleRepead()"
+    >
+      <mat-icon>loop</mat-icon>
+    </button>
+
+    <button
+      class="btn"
+      [color]="isShuffled ? 'primary' : ''"
+      mat-mini-fab
+      (click)="toggleShuffle()"
+    >
+      <mat-icon>shuffle</mat-icon>
+    </button>
+
+    <div class="timer">
+      <button
+        color="primary"
+        mat-mini-fab
+        (click)="toggleTimerControlsVisibility()"
+      >
+        <mat-icon>snooze</mat-icon>
+      </button>
+
+      <mat-card class="timer__controls" [class.is-open]="isTimerControlsVisible">
+        <button
+          color="primary"
+          mat-mini-fab
+          (click)="decreaseTime()"
+        >
+          <mat-icon>remove</mat-icon>
+        </button>
+
+        <span class="timer__text">{{ timer }} min</span>
+
+        <button
+          color="primary"
+          mat-mini-fab
+          (click)="increaseTime()"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-card>
+    </div>
+  </div>
+</mat-card>

@@ -20,6 +20,7 @@ import { PronounDeclensionComponent } from './lessons/pronoun-declension/pronoun
 import { TellAboutYourselfComponent } from './lessons/tell-about-yourself/tell-about-yourself.component';
 import { OrderWordLettersComponent } from './learn-words/order-word-letters/order-word-letters.component';
 import { MatchTranslationsComponent } from './learn-words/match-translations/match-translations.component';
+import { AutoplayComponent } from './learn-words/autoplay/autoplay.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: 'order-letters', component: OrderWordLettersComponent },
   { path: 'match-translations', component: MatchTranslationsComponent },
   { path: 'choose-translation', component: OrderWordLettersComponent },
+  { path: 'autoplay', component: AutoplayComponent },
 ];
 
 @NgModule({
