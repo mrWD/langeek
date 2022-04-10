@@ -35,6 +35,7 @@ export class NavigationComponent implements OnInit {
         { link: '/order-letters', name: 'Order letters' },
         { link: '/match-translations', name: 'Match translations' },
         { link: '/choose-translation', name: 'Choose translation' },
+        { link: '/autoplay', name: 'Autoplay' },
       ],
     },
   ]
