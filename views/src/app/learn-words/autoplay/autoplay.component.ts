@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import { PlayerService } from './../../shared/services/player.service';
 import { WordListComponent } from '../../shared/components/word-list/word-list.component';
+import { ActivatedRoute } from '@angular/router';
 
 const BOUNDS_1 = 5
 const BOUNDS_2 = 30
@@ -42,11 +43,20 @@ export class AutoplayComponent implements OnInit {
     private ngZone: NgZone,
     public playerService: PlayerService,
     public dialog: MatDialog,
+    private route: ActivatedRoute,
   ) { }
 
   async ngOnInit(): Promise<void> {
-    const link = localStorage.getItem('link')
-    const name = localStorage.getItem('name')
+    const queryLink = this.route.snapshot.queryParamMap.get('link')
+    const queryName = this.route.snapshot.queryParamMap.get('name')
+
+    if (queryLink && queryName) {
+      localStorage.setItem('link', queryLink)
+      localStorage.setItem('name', queryName)
+    }
+
+    const link = queryLink ?? localStorage.getItem('link')
+    const name = queryName ?? localStorage.getItem('name')
 
     if (!link || !name) {
       this.showWordList()

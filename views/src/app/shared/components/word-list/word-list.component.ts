@@ -21,8 +21,8 @@ export class WordListComponent implements OnInit {
   language = 'polish'
 
   form = new FormGroup({
-    link: new FormControl(''),
-    name: new FormControl(''),
+    link: new FormControl(localStorage.getItem('link') ?? ''),
+    name: new FormControl(localStorage.getItem('name') ?? ''),
   })
 
   wordList: Array<Record<string, string>> = []
