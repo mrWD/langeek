@@ -49,6 +49,7 @@ export class AutoplayComponent implements OnInit {
     const name = localStorage.getItem('name')
 
     if (!link || !name) {
+      this.showWordList()
       return
     }
 
@@ -60,8 +61,6 @@ export class AutoplayComponent implements OnInit {
         name: name,
       }
     })
-
-    console.log(data)
 
     if (data) {
       this.updateWordList({
