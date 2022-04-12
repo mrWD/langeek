@@ -1,10 +1,8 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import axios from 'axios';
 
 import { PlayerService } from './../../shared/services/player.service';
-import { WordListComponent } from '../../shared/components/word-list/word-list.component';
-import { ActivatedRoute } from '@angular/router';
 
 const BOUNDS_1 = 5
 const BOUNDS_2 = 30
@@ -34,6 +32,7 @@ export class AutoplayComponent implements OnInit {
   isShuffled = false
   isRepeat = false
   isPlaying = false
+  isModalVisible = false
 
   currentIndex = 0
 
@@ -42,7 +41,6 @@ export class AutoplayComponent implements OnInit {
   constructor(
     private ngZone: NgZone,
     public playerService: PlayerService,
-    public dialog: MatDialog,
     private route: ActivatedRoute,
   ) { }
 
@@ -59,7 +57,7 @@ export class AutoplayComponent implements OnInit {
     const name = queryName ?? localStorage.getItem('name')
 
     if (!link || !name) {
-      this.showWordList()
+      this.toggleWordListVisibility()
       return
     }
 
@@ -84,22 +82,8 @@ export class AutoplayComponent implements OnInit {
     return this.wordList[this.currentIndex] || {}
   }
 
-  showWordList() {
-    const dialogRef = this.dialog.open(WordListComponent, {
-      width: '100%',
-      height: '100%',
-      maxWidth: '100%',
-      data: {
-        currentIndex: this.currentIndex,
-        wordList: this.wordList,
-        onPlay: this.onPlayFromIndex,
-        onRecieveWordList: this.updateWordList,
-      },
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+  toggleWordListVisibility() {
+    this.isModalVisible = !this.isModalVisible
   }
 
   updateWordList({ wordList, languages }: any) {
@@ -166,7 +150,6 @@ export class AutoplayComponent implements OnInit {
 
   onPlay() {
     this.isPlaying = true
-
     this.play()
   }
 

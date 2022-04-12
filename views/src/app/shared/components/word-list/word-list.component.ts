@@ -1,6 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import axios from 'axios';
 
 export interface DialogData {
@@ -17,6 +16,27 @@ export interface DialogData {
 })
 export class WordListComponent implements OnInit {
 
+  @Input()
+  set inputWordList(inputWordList: Array<Record<string, string>>) {
+    this.wordList = inputWordList
+  }
+
+  @Input()
+  currentIndex!: number
+
+  @Input()
+  isOpened!: boolean
+
+  @Output()
+  onPlay = new EventEmitter();
+
+  @Output()
+  onClose = new EventEmitter();
+
+  @Output()
+  onRecieveWordList = new EventEmitter<{ wordList: any; languages: any }>();
+
+
   originLanguage = 'english'
   language = 'polish'
 
@@ -27,15 +47,9 @@ export class WordListComponent implements OnInit {
 
   wordList: Array<Record<string, string>> = []
 
-  constructor(
-    public dialogRef: MatDialogRef<WordListComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
-  ) {
-    this.wordList = this.data.wordList;
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   async onSubmit() {
     localStorage.setItem('link', this.form.value.link)
@@ -54,15 +68,19 @@ export class WordListComponent implements OnInit {
       this.wordList = data.wordList
       [this.originLanguage, this.language] = data.languages
 
-      this.data.onRecieveWordList({
+      this.onRecieveWordList.emit({
         wordList: data.wordList,
         languages: data.languages,
       })
     }
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
+  onWordClick(index: number) {
+    this.onPlay.emit(index)
+  }
+
+  close(): void {
+    this.onClose.emit()
   }
 
 }

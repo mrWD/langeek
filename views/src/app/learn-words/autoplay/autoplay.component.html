@@ -42,7 +42,7 @@
       class="btn"
       color="primary"
       mat-mini-fab
-      (click)="showWordList()"
+      (click)="toggleWordListVisibility()"
     >
       <mat-icon>playlist_play</mat-icon>
     </button>
@@ -96,3 +96,12 @@
     </div>
   </div>
 </mat-card>
+
+<app-word-list
+  [isOpened]="isModalVisible"
+  [currentIndex]="currentIndex"
+  [inputWordList]="wordList"
+  (onPlay)="onPlayFromIndex($event)"
+  (onRecieveWordList)="updateWordList($event)"
+  (onClose)="toggleWordListVisibility()"
+></app-word-list>

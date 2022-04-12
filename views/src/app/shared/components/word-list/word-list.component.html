@@ -1,34 +1,36 @@
-<h1 mat-dialog-title>Word List</h1>
-
-<button class="btn" mat-button (click)="onNoClick()">
-  <mat-icon>close</mat-icon>
-</button>
-
-<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-  <mat-form-field appearance="fill">
-    <mat-label for="link">Put link</mat-label>
-
-    <input matInput name="link" formControlName="link">
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label for="name">Put Name</mat-label>
-
-    <input matInput name="name" formControlName="name">
-  </mat-form-field>
-
-  <button mat-raised-button type="submit">Submit</button>
-</form>
-
-<div mat-dialog-content>
-  <mat-list>
-    <mat-list-item
-      *ngFor="let word of data.wordList; let i = index"
-      (click)="data.onPlay(i)"
-    >
-      <span>{{ word[originLanguage] }} - {{ word[language] }}</span>
-
-      <mat-icon *ngIf="data.currentIndex === i">play_arrow</mat-icon>
-    </mat-list-item>
-  </mat-list>
-</div>
+<dialog class="word-list" [open]="isOpened">
+  <h1>Word List</h1>
+  
+  <button class="btn" mat-button (click)="close()">
+    <mat-icon>close</mat-icon>
+  </button>
+  
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label for="link">Put link</mat-label>
+  
+      <input matInput name="link" formControlName="link">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label for="name">Put Name</mat-label>
+  
+      <input matInput name="name" formControlName="name">
+    </mat-form-field>
+  
+    <button mat-raised-button type="submit">Submit</button>
+  </form>
+  
+  <div>
+    <mat-list>
+      <mat-list-item
+        *ngFor="let word of wordList; let i = index"
+        (click)="onWordClick(i)"
+      >
+        <span>{{ word[originLanguage] }} - {{ word[language] }}</span>
+  
+        <mat-icon *ngIf="currentIndex === i">play_arrow</mat-icon>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</dialog>
