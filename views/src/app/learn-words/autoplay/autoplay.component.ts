@@ -156,25 +156,51 @@ export class AutoplayComponent implements OnInit {
   play() {
     const currentText = this.wordList[this.currentIndex]
 
-    this.playerService.play(currentText[this.originLanguage], {
-      language: this.originLanguage,
-      onend: () => {
-        this.playerService.play(currentText[this.language], {
-          language: this.language,
-          onend: () => {
-            this.currentText = this.wordList[this.currentIndex]
-          },
-        })
-  
-        this.goNext()
-  
-        if (this.currentIndex >= this.wordList.length - 1 && !this.isRepeat) {
-          return
-        }
-  
-        this.play()
-      },
+    const interval = setInterval(() => {
+      this.playerService.play(currentText[this.originLanguage], {
+        language: this.originLanguage,
+      })
+
+      this.playerService.play(currentText[this.language], {
+        language: this.language,
+      })
+
+      this.goNext()
     })
+
+    // setTimeout(() => {
+    //   this.playerService.play(currentText[this.originLanguage], {
+    //     language: this.originLanguage,
+    //   })
+    // }, 100)
+
+    // setTimeout(() => {
+    //   this.playerService.play(currentText[this.originLanguage], {
+    //     language: this.originLanguage,
+    //   })
+
+    //   this.goNext()
+    // }, 100)
+
+    // this.playerService.play(currentText[this.originLanguage], {
+    //   language: this.originLanguage,
+    //   onend: () => {
+    //     this.playerService.play(currentText[this.language], {
+    //       language: this.language,
+    //       onend: () => {
+    //         this.currentText = this.wordList[this.currentIndex]
+    //       },
+    //     })
+  
+    //     this.goNext()
+  
+    //     if (this.currentIndex >= this.wordList.length - 1 && !this.isRepeat) {
+    //       return
+    //     }
+  
+    //     this.play()
+    //   },
+    // })
   }
 
 }
