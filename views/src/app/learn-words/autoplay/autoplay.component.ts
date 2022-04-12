@@ -154,9 +154,9 @@ export class AutoplayComponent implements OnInit {
   }
 
   play() {
-    const currentText = this.wordList[this.currentIndex]
-
     const interval = setInterval(() => {
+      const currentText = this.wordList[this.currentIndex]
+
       this.playerService.play(currentText[this.originLanguage], {
         language: this.originLanguage,
       })
